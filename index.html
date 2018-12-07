@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>OpenDataPub</title>
+  <script src='https://www.w3.org/Tools/respec/respec-w3c-common' class='remove'></script>
+  <script class='remove'>
+    var respecConfig = {
+      specStatus: "ED",
+      editors: [{
+        name: "Jan Werder",
+        url: "",
+      }],
+      github: "https://github.com/OpenDataPub/OpenDataPub",
+      shortName: "jawerd"
+    };
+  </script>
+</head>
+
+<body>
+  <section id='abstract'>
+    <p>
+      The OpenDataPub protocol is a decentralised networking protocol for
+      open data platforms based uopn the <a href="https://w3c.github.io/activitypub/">ActivityPub</a> protcol in
+      combination with the <a href="https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe">DCAT-AP</a>
+      open data standard of the EU.
+    </p>
+  </section>
+  <section id='sotd'>
+    <p>
+      This document is a proposed submission.
+    </p>
+  </section>
+
+  <section id="Overview">
+    <h2><span class="secno">1. </span>Overview</h2>
+  </section>
+
+  <section id="conformance">
+  </section>
+
+  <section id="vocabulary-specification">
+    <h2 role="heading" aria-level="1" id="vocab-spec">Vocabulary specification</h2>
+
+    <h3 role="heading" aria-level="2" id="dataset"><span class="secno">3.1 </span>Dataset</h3>
+    <p>Datasets are a central component of any Open Data Platform. Datasets
+      provide context to the actual data, which they carry as an Resource.
+      (ActivityPub: Object)
+    </p>
+
+    <p>
+      Dataset objects <em class="rfc2119" title="MUST">MUST</em> have the following properties:
+    </p>
+
+    <dt id="title-property">title</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_title">
+        <code>Dataset</code></a>
+        <code>dct:title</code>
+    </dd>
+
+    <dt id="description-property">description</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_description">
+        <code>Dataset</code></a>
+        <code>dct:description</code>
+    </dd>
+
+    <p>
+      Dataset objects <em class="rfc2119" title="SHOULD">SHOULD</em> have the following properties:
+    </p>
+
+    <dt id="keyword-property">keyword/tag</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_keyword">
+      <code>Dataset</code></a>
+      <code>dcat:keyword</code>
+    </dd>
+
+    <dt id="contactPoint-property">contact point</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_contactPoint">
+      <code>Dataset</code></a>
+      <code>dcat:contactPoint</code>
+    </dd>
+
+    <dt id="distribution-property">dataset distribution</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_distribution">
+      <code>Dataset</code></a>
+      <code>dcat:distribution</code>
+    </dd>
+
+    <dt id="publisher-property">publisher</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_publisher">
+      <code>Dataset</code></a>
+      <code>dct:publisher</code>
+    </dd>    
+
+    <dt id="theme-property">theme/catagory</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_theme">
+      <code>Dataset</code></a>
+      <code>dcat:theme</code>
+    </dd>
+
+    <p>
+        Dataset objects <em class="rfc2119" title="MAY">MAY</em> have the following properties:
+      </p>
+
+    <dt id="issued-property">release date</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_issued">
+        <code>Dataset</code></a>
+        <code>dct:issued</code>
+    </dd>
+
+    <dt id="modified-property">update/modification date</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_modified">
+        <code>Dataset</code></a>
+        <code>dct:modified</code>
+    </dd>
+
+    <dt id="language-property">language</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_language">
+      <code>Dataset</code></a>
+      <code>dct:language</code>
+    </dd>
+
+
+    <dt id="accrualPeriodicity-property">frequency</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_accrualPeriodicity">
+      <code>Dataset</code></a>
+      <code>dct:accrualPeriodicity</code>
+    </dd>
+
+    <dt id="identifier-property">identifier</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_identifier">
+      <code>Dataset</code></a>
+      <code>dct:identifier</code>
+    </dd>
+
+    <dt id="spatial-property">spatial/geographical coverage</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_spatial">
+      <code>Dataset</code></a>
+      <code>dct:spatial</code>
+    </dd>
+
+    <dt id="temporal-property">temporal coverage</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_temporal">
+      <code>Dataset</code></a>
+      <code>dct:temporal</code>
+    </dd>
+
+    <dt id="landingPage-property">landing page</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_landingPage">
+      <code>Dataset</code></a>
+      <code>dcat:landingPage</code>
+    </dd>
+
+    <dt id="accessRights-property">access rights</dt>
+    <dd>
+      A reference to an [[DCAT-AP]]
+      <a href="">
+      <code>Dataset</code></a>
+      <code>dct:accessRights</code>
+    </dd>
+
+    <dt id="conformsTo-property">conforms to</dt>
+    <dd>
+      A reference to an [[DCAT-AP]]
+      <a href="">
+      <code>Dataset</code></a>
+      <code>dct:conformsTo</code>
+    </dd>
+
+    <dt id="Documentation-property">Documentation</dt>
+    <dd>
+      A reference to an [[DCAT-AP]]
+      <a href="">
+      <code>Dataset</code></a>
+      <code>foaf:page</code>
+    </dd>
+
+    <dt id="isVersionOf-property">is Version Of</dt>
+    <dd>
+      A reference to an [[DCAT-AP]]
+      <a href="">
+      <code>Dataset</code></a>
+      <code>dct:isVersionOf</code>
+    </dd>
+
+    <dt id="otherIdentifier-property">otherIdentifier</dt>
+    <dd>
+      A reference to an [[DCAT-AP]]
+      <a href="">
+      <code>Dataset</code></a>
+      <code>adms:identifier</code>
+    </dd>
+
+    <dt id="provenance-property">provenance</dt>
+    <dd>
+      A reference to an [[DCAT-AP]]
+      <a href="">
+      <code>Dataset</code></a>
+      <code>dct:provenance</code>
+    </dd>
+
+    <dt id="relatedresource-property">related resource</dt>
+    <dd>
+      A reference to an [[DCAT-AP]]
+      <a href="">
+      <code>Dataset</code></a>
+      <code>dct:relation</code>
+    </dd>
+
+    <dt id="sample-property">sample</dt>
+    <dd>
+      A reference to an [[DCAT-AP]]
+      <a href="">
+      <code>Dataset</code></a>
+      <code>adms:sample</code>
+    </dd>
+
+    <dt id="source-property">source</dt>
+    <dd>
+      A reference to an [[DCAT-AP]]
+      <a href="">
+      <code>Dataset</code></a>
+      <code>dct:source</code>
+    </dd>
+
+    <dt id="type-property">type</dt>
+    <dd>
+      A reference to an [[DCAT-AP]]
+      <a href="">
+      <code>Dataset</code></a>
+      <code>dct:type</code>
+    </dd>
+
+    <dt id="version-property">version</dt>
+    <dd>
+      A reference to an [[DCAT-AP]]
+      <a href="">
+      <code>Dataset</code></a>
+      <code>owl:versionInfo</code>
+    </dd>
+
+    <dt id="versionnotes-property">version notes</dt>
+    <dd>
+      A reference to an [[DCAT-AP]]
+      <a href="">
+      <code>Dataset</code></a>
+      <code>adms:versionNotes</code>
+    </dd>
+
+  </section>
+
+  <section id="Catalog">
+    <h2>Overview</h2>
+  </section>
+
+  <section id="catalog">
+    <h2>Catalog</h2>
+    <p>Catalogs are a collection of Datasets. The provide an additional description and title.
+      (ActivityPub: Collection)
+
+    </p>
+  </section>
+</body>
+
+</html>
