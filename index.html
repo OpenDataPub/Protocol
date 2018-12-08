@@ -59,6 +59,8 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_title">
         <code>Dataset</code></a>
         <code>dct:title</code>
+        <p>This property contains a name given to the Dataset.</p>
+        <p>Range: dfs:Literal (1..n)</p>
     </dd>
 
     <dt id="description-property">description</dt>
@@ -67,6 +69,8 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_description">
         <code>Dataset</code></a>
         <code>dct:description</code>
+        <p>This property contains a free-text account of the Dataset.</p>
+        <p>Range: dfs:Literal (1..n)</p>
     </dd>
 
     <p>
@@ -79,6 +83,8 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_keyword">
       <code>Dataset</code></a>
       <code>dcat:keyword</code>
+      <p>This property contains a keyword or tag describing the Dataset.</p>
+      <p>Range: rdfs:Literal (0..n)</p>
     </dd>
 
     <dt id="contactPoint-property">contact point</dt>
@@ -87,6 +93,8 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_contactPoint">
       <code>Dataset</code></a>
       <code>dcat:contactPoint</code>
+      <p>This property contains contact information that can be used for sending comments about the Dataset.</p>
+      <p>Range: vcard:Kind (0..n)</p>
     </dd>
 
     <dt id="distribution-property">dataset distribution</dt>
@@ -95,6 +103,8 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_distribution">
       <code>Dataset</code></a>
       <code>dcat:distribution</code>
+      <p>This property links the Dataset to an available Distribution.</p>
+      <p>Range: dcat:Distribution (0..n)</p>
     </dd>
 
     <dt id="publisher-property">publisher</dt>
@@ -103,6 +113,8 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_publisher">
       <code>Dataset</code></a>
       <code>dct:publisher</code>
+      <p>This property refers to an entity (organisation) responsible for making the Dataset available.</p>
+      <p>Range: foaf:Agent (0..1)</p>
     </dd>    
 
     <dt id="theme-property">theme/catagory</dt>
@@ -111,6 +123,8 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_theme">
       <code>Dataset</code></a>
       <code>dcat:theme</code>
+      <p>This property refers to a category of the Dataset. A Dataset may be associated with multiple themes.</p>
+      <p>Range: skos:Concept (0..n)</p>
     </dd>
 
     <p>
@@ -123,6 +137,8 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_issued">
         <code>Dataset</code></a>
         <code>dct:issued</code>
+        <p>This property contains the date of formal issuance (e.g., publication) of the Dataset.</p>
+        <p>Range: rdfs:Literal typed as xsd:date or xsd:dateTime (0..1)</p>
     </dd>
 
     <dt id="modified-property">update/modification date</dt>
@@ -131,6 +147,8 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_modified">
         <code>Dataset</code></a>
         <code>dct:modified</code>
+        <p>This property contains the most recent date on which the Dataset was changed or modified.</p>
+        <p>Range: rdfs:Literal typed as xsd:date or xsd:dateTime (0..1)</p>
     </dd>
 
     <dt id="language-property">language</dt>
@@ -139,6 +157,8 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_language">
       <code>Dataset</code></a>
       <code>dct:language</code>
+      <p>This property refers to a language of the Dataset.</p>
+      <p>Range: dct:LinguisticSystem (0..n)</p>
     </dd>
 
 
@@ -148,6 +168,8 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_accrualPeriodicity">
       <code>Dataset</code></a>
       <code>dct:accrualPeriodicity</code>
+      <p>This property refers to the frequency at which the Dataset is updated.</p>
+      <p>Range: dct:Frequency (0..1)</p>
     </dd>
 
     <dt id="identifier-property">identifier</dt>
@@ -156,6 +178,8 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_identifier">
       <code>Dataset</code></a>
       <code>dct:identifier</code>
+      <p>This property contains the main identifier for the Dataset, e.g. the URI or other unique identifier in the context of the Catalogue.</p>
+      <p>Range: rdfs:Literal (0..n)</p>
     </dd>
 
     <dt id="spatial-property">spatial/geographical coverage</dt>
@@ -164,6 +188,8 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_spatial">
       <code>Dataset</code></a>
       <code>dct:spatial</code>
+      <p>This property refers to a geographic region that is covered by the Dataset.</p>
+      <p>Range: dct:Location (0..n)</p>
     </dd>
 
     <dt id="temporal-property">temporal coverage</dt>
@@ -172,6 +198,8 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_temporal">
       <code>Dataset</code></a>
       <code>dct:temporal</code>
+      <p>This property refers to a temporal period that the Dataset covers.</p>
+      <p>Range: dct:PeriodOfTime (0..n)</p>
     </dd>
 
     <dt id="landingPage-property">landing page</dt>
@@ -180,6 +208,11 @@
       <a href="https://www.w3.org/TR/vocab-dcat/#Property:dataset_landingPage">
       <code>Dataset</code></a>
       <code>dcat:landingPage</code>
+      <p>This property refers to a web page that provides access to the Dataset, 
+        its Distributions and/or additional information. It is intended to point 
+        to a landing page at the original data provider, not to a page on a site 
+        of a third party, such as an aggregator.</p>
+      <p>Range: foaf:Document (0..n)</p>
     </dd>
 
     <dt id="accessRights-property">access rights</dt>
@@ -188,6 +221,11 @@
       <a href="">
       <code>Dataset</code></a>
       <code>dct:accessRights</code>
+      <p>This property refers to information that indicates whether the Dataset is 
+        open data, has access restrictions or is not public. A controlled vocabulary 
+        with three members (:public, :restricted, :non-public) will be created and 
+        maintained by the Publications Office of the EU.</p>
+      <p>Range: dct:RightsStatement (0..1)</p>
     </dd>
 
     <dt id="conformsTo-property">conforms to</dt>
@@ -196,6 +234,8 @@
       <a href="">
       <code>Dataset</code></a>
       <code>dct:conformsTo</code>
+      <p>This property refers to an implementing rule or other specification.</p>
+      <p>Range: dct:Standard (0..n)</p>
     </dd>
 
     <dt id="Documentation-property">Documentation</dt>
@@ -204,6 +244,8 @@
       <a href="">
       <code>Dataset</code></a>
       <code>foaf:page</code>
+      <p>This property refers to a page or document about this Dataset.</p>
+      <p>Range: foaf:Document (0..n)</p>
     </dd>
 
     <dt id="isVersionOf-property">is Version Of</dt>
@@ -212,6 +254,8 @@
       <a href="">
       <code>Dataset</code></a>
       <code>dct:isVersionOf</code>
+      <p>This property refers to a related Dataset of which the described Dataset is a version, edition, or adaptation.</p>
+      <p>Range: dcat:Dataset (0..n)</p>
     </dd>
 
     <dt id="otherIdentifier-property">otherIdentifier</dt>
@@ -220,6 +264,8 @@
       <a href="">
       <code>Dataset</code></a>
       <code>adms:identifier</code>
+      <p>This property refers to a secondary identifier of the Dataset, such as MAST/ADS, DataCite, DOI, EZID or W3ID.</p>
+      <p>Range: adms:Identifier (0..n)</p>
     </dd>
 
     <dt id="provenance-property">provenance</dt>
@@ -228,6 +274,8 @@
       <a href="">
       <code>Dataset</code></a>
       <code>dct:provenance</code>
+      <p>This property contains a statement about the lineage of a Dataset.</p>
+      <p>Range: dct:ProvenanceStatement (0..n)</p>
     </dd>
 
     <dt id="relatedresource-property">related resource</dt>
@@ -236,6 +284,8 @@
       <a href="">
       <code>Dataset</code></a>
       <code>dct:relation</code>
+      <p>This property refers to a related resource.</p>
+      <p>Range: rdfs:Resource (0..n)</p>
     </dd>
 
     <dt id="sample-property">sample</dt>
@@ -244,6 +294,8 @@
       <a href="">
       <code>Dataset</code></a>
       <code>adms:sample</code>
+      <p>This property refers to a sample distribution of the dataset.</p>
+      <p>Range: dcat:Distribution (0..n)</p>
     </dd>
 
     <dt id="source-property">source</dt>
@@ -252,6 +304,8 @@
       <a href="">
       <code>Dataset</code></a>
       <code>dct:source</code>
+      <p>This property refers to a related Dataset from which the described Dataset is derived.</p>
+      <p>Range: dcat:Dataset (0..n)</p>
     </dd>
 
     <dt id="type-property">type</dt>
@@ -260,6 +314,8 @@
       <a href="">
       <code>Dataset</code></a>
       <code>dct:type</code>
+      <p>This property refers to the type of the Dataset. A controlled vocabulary for the values has not been established.</p>
+      <p>Range: skos:Concept (0..1)</p>
     </dd>
 
     <dt id="version-property">version</dt>
@@ -268,6 +324,8 @@
       <a href="">
       <code>Dataset</code></a>
       <code>owl:versionInfo</code>
+      <p>This property contains a version number or other version designation of the Dataset.</p>
+      <p>Range: rdfs:Literal (0..1)</p>
     </dd>
 
     <dt id="versionnotes-property">version notes</dt>
@@ -276,6 +334,9 @@
       <a href="">
       <code>Dataset</code></a>
       <code>adms:versionNotes</code>
+      <p>This property contains a description of the differences between this 
+        version and a previous version of the Dataset.</p>
+      <p>Range: rdfs:Literal (0..n)</p>
     </dd>
 
   </section>
