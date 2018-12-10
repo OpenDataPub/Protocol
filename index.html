@@ -511,6 +511,427 @@
 		</dd>
     
     </section>
+
+    <section id="CatalogRecord">
+      <h3 role="heading" aria-level="2" id="catalogRecord">Catalog Record</h3>
+      <p>This class is optional and not all catalogs will use it. It exists for catalogs where a distinction is made between metadata about a dataset and metadata about the dataset's entry in the catalog. 
+        (ActivityPub: Object)
+      </p>
+
+      <p>
+        Catalog Record objects <em class="rfc2119" title="MUST">MUST</em> have the following properties:
+      </p>
+
+      <dt id="primaryTopic-property">primary topic</dt>
+      <dd>
+        A reference to an [[Vocab-DCAT]]
+        <a href="https://www.w3.org/TR/vocab-dcat/#Property:catalog_primaryTopic">
+        <code>Catalog</code></a>
+        <code>foaf:primaryTopic</code>
+        <p>This property links the Catalogue Record to the Dataset described in the record.</p>
+        <p>Range: dcat:Dataset (1..1)</p>
+      </dd>
+
+      <dt id="modified-property">update/ modification date</dt>
+      <dd>
+        A reference to an [[Vocab-DCAT]]
+        <a href="https://www.w3.org/TR/vocab-dcat/#Property:catalog_modified">
+        <code>Catalog</code></a>
+        <code>date dct:modified</code>
+        <p>This property contains the most recent date on which the Catalog entry was changed or modified.</p>
+        <p>Range: rdfs:Literal typed as xsd:date or xsd:dateTime (1..1)</p>
+      </dd>      
+
+      <p>
+        Catalog Record objects <em class="rfc2119" title="SHOULD">SHOULD</em> have the following properties:
+      </p>
+
+      <dt id="issued-property">listing date</dt>
+			<dd>
+			  A reference to an [[Vocab-DCAT]]
+			  <a href="https://www.w3.org/TR/vocab-dcat/#Property:record_release_date">
+				<code>Catalog</code></a>
+			  <code>dct:issued</code>
+			  <p>This property contains the date on which the description of the Dataset was included in the Catalog.</p>
+			  <p>Range: rdfs:Literal typed as xsd:date or xsd:dateTime (0..1)</p>
+      </dd>
+      
+      <dt id="changetype-property">change type</dt>
+      <dd>
+        A reference to an [[DCAT-AP]]
+        <a href="">
+        <code>Catalog</code></a>
+        <code>adms:status</code>
+        <p>It MUST take one of the values :created, :updated or :deleted depending on whether this latest revision is a result of a creation, update or deletion.</p>
+        <p>Range: skos:Concept (0..1)</p>
+      </dd>
+
+      <dt id="conformsTo-property">application profile</dt>
+      <dd>
+        A reference to an [[DCAT-AP]]
+        <a href="">
+        <code>Catalog</code></a>
+        <code>dct:conformsTo</code>
+        <p>This property refers to an Application Profile that the Dataset’s metadata conforms to 0..1 change type adms:status skos:Concept This property refers to the type of the latest revision of a Dataset's entry in the Catalog.</p>
+        <p>Range: rdfs:Resource (0..1)</p>
+      </dd>
+      
+      <p>
+        Catalog Record objects <em class="rfc2119" title="MAY">MAY</em> have the following properties:
+      </p>
+
+      <dt id="title-property">title</dt>
+			<dd>
+			  A reference to an [[Vocab-DCAT]]
+			  <a href="https://www.w3.org/TR/vocab-dcat/#Property:catalog_title">
+				<code>Catalog</code></a>
+			  <code>dct:title</code>
+			  <p>This property contains a name given to the Catalogue Record.</p>
+			  <p>Range: rdfs:Literal (0..n)</p>
+      </dd>
+      
+      <dt id="description-property">description</dt>
+			<dd>
+			  A reference to an [[Vocab-DCAT]]
+			  <a href="https://www.w3.org/TR/vocab-dcat/#Property:catalog_description">
+				<code>Catalog</code></a>
+			  <code>dct:description</code>
+			  <p>This property contains a free-text account of the record.</p>
+			  <p>Range: rdfs:Literal (0..n)</p>
+      </dd>
+      
+      <dt id="language-property">language</dt>
+      <dd>
+        A reference to an [[DCAT-AP]]
+        <a href="">
+        <code>Catalog</code></a>
+        <code>dct:language</code>
+        <p>This property refers to a language used in the textual metadata describing titles, descriptions, etc. of the Dataset.</p>
+        <p>Range: dct:LinguisticSystem (0..n)</p>
+      </dd>  
+
+      <dt id="source-property">source metadata</dt>
+      <dd>
+        A reference to an [[DCAT-AP]]
+        <a href="">
+        <code>Catalog</code></a>
+        <code>dct:source</code>
+        <p>This property refers to the original metadata that was used in creating metadata for the Dataset.</p>
+        <p>Range: dcat:CatalogRecord (0..1)</p>
+      </dd>
+      
+    </section>
+
+    <section id="Distribution">
+      <h3 role="heading" aria-level="2" id="distribution">Distribution</h3>
+      <p>Represents a specific available form of a dataset. Each dataset might be available in different forms, these forms might represent different formats of the dataset or different endpoints. Examples of distributions include a downloadable CSV file, an API or an RSS feed.
+        (ActivityPub: )
+      </p>
+
+      <p>
+        Distribution objects <em class="rfc2119" title="MUST">MUST</em> have the following properties:
+      </p>
+
+      <dt id="accessurl-property">access URL</dt>
+			<dd>
+			  A reference to an [[Vocab-DCAT]]
+			  <a href="https://www.w3.org/TR/vocab-dcat/#Property:distribution_accessurl">
+				<code>Distribution</code></a>
+			  <code>dcat:accessURL</code>
+			  <p>This property contains a URL that gives access to a Distribution of the Dataset. The resource at the access URL may contain information about how to get the Dataset.</p>
+			  <p>Range: rdfs:Resource (1..n)</p>
+			</dd>
+
+      <p>
+        Distribution objects <em class="rfc2119" title="SHOULD">SHOULD</em> have the following properties:
+      </p>
+
+      <dt id="description-property">description</dt>
+			<dd>
+			  A reference to an [[Vocab-DCAT]]
+			  <a href="https://www.w3.org/TR/vocab-dcat/#Property:distribution_description">
+				<code>Distribution</code></a>
+			  <code>dct:description</code>
+			  <p>This property contains a free-text account of the Distribution.</p>
+			  <p>Range: rdfs:Literal (0..n)</p>
+      </dd>
+      
+      <dt id="format-property">format</dt>
+			<dd>
+			  A reference to an [[Vocab-DCAT]]
+			  <a href="https://www.w3.org/TR/vocab-dcat/#Property:distribution_format">
+				<code>Distribution</code></a>
+			  <code>dct:format</code>
+			  <p>This property refers to the file format of the Distribution.</p>
+			  <p>Range: dct:MediaTypeOrExtent (0..1)</p>
+      </dd>
+      
+      <dt id="licence-property">licence</dt>
+			<dd>
+			  A reference to an [[Vocab-DCAT]]
+			  <a href="https://www.w3.org/TR/vocab-dcat/#Property:distribution_licence">
+				<code>Distribution</code></a>
+			  <code>dct:license</code>
+			  <p>This property refers to the licence under which the Distribution is made available.</p>
+			  <p>Range: dct:LicenseDocument (0..1)</p>
+			</dd>
+      
+      <p>
+        Distribution objects <em class="rfc2119" title="MAY">MAY</em> have the following properties:
+      </p>
+
+      <dt id="byteSize-property">byte size</dt>
+			<dd>
+			  A reference to an [[Vocab-DCAT]]
+			  <a href="https://www.w3.org/TR/vocab-dcat/#Property:distribution_byteSize">
+				<code>Distribution</code></a>
+			  <code>dcat:byteSize</code>
+			  <p>This property contains the size of a Distribution in bytes.</p>
+			  <p>Range: rdfs:Literal typed as xsd:decimal (0..1)</p>
+      </dd>
+      
+      <dt id="checksum-property">checksum</dt>
+		<dd>
+		  A reference to an [[DCAT-AP]]
+		  <a href="">
+			<code>Distribution</code></a>
+		  <code>spdx:checksum</code>
+		  <p>This property provides a mechanism that can be used to verify that the contents of a distribution have not changed</p>
+		  <p>Range: spdx:Checksum (0..1)</p>
+    </dd>
+    
+    <dt id="documentation-property">documentation</dt>
+		<dd>
+		  A reference to an [[DCAT-AP]]
+		  <a href="">
+			<code>Distribution</code></a>
+		  <code>foaf:page</code>
+		  <p>This property refers to a page or document about this Distribution.</p>
+		  <p>Range: foaf:Document (0..n)</p>
+    </dd>
+    
+    <dt id="downloadURL-property">downloadURL</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:distribution_downloadURL">
+      <code>Distribution</code></a>
+      <code>dcat:downloadURL</code>
+      <p>This property contains a URL that is a direct link to a downloadable file in a given format.</p>
+      <p>Range: downloadURL rdfs:Resource (0..n)</p>
+    </dd>
+
+    <dt id="language-property">language</dt>
+		<dd>
+		  A reference to an [[DCAT-AP]]
+		  <a href="">
+			<code>Distribution</code></a>
+		  <code>dct:language</code>
+		  <p>This property refers to a language used in the Distribution.</p>
+		  <p>Range: dct:LinguisticSystem (0..n)</p>
+    </dd>
+    
+    <dt id="conformsTo-property">linked schemas</dt>
+		<dd>
+		  A reference to an [[DCAT-AP]]
+		  <a href="">
+			<code>Distribution</code></a>
+		  <code>dct:conformsTo</code>
+		  <p>This property refers to an established schema to which the described Distribution conforms.</p>
+		  <p>Range: dct:Standard (0..n)</p>
+    </dd>
+    
+    <dt id="mediaType-property">mediaType</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:distribution_mediaType">
+      <code>Distribution</code></a>
+      <code>dcat:mediaType, subproperty of dct:format</code>
+      <p>This property refers to the media type of the Distribution as defined in the official register of media types managed by IANA.</p>
+      <p>Range: dct:MediaTypeOrExtent (0..1)</p>
+    </dd>
+
+    <dt id="issued-property">release date</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:distribution_issued">
+      <code>Distribution</code></a>
+      <code>dct:issued</code>
+      <p>This property contains the date of formal issuance (e.g., publication) of the Distribution.</p>
+      <p>Range: rdfs:Literal typed as xsd:date or xsd:dateTime (0..1)</p>
+    </dd>
+
+    <dt id="rights-property">rights</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:distribution_rights">
+      <code>Distribution</code></a>
+      <code>dct:rights</code>
+      <p>This property refers to a statement that specifies rights associated with the Distribution.</p>
+      <p>Range: dct:RightsStatement (0..1)</p>
+    </dd>
+
+    <dt id="status-property">status</dt>
+		<dd>
+		  A reference to an [[DCAT-AP]]
+		  <a href="">
+			<code>Distribution</code></a>
+		  <code>adms:status</code>
+		  <p>This property refers to the maturity of the Distribution</p>
+		  <p>Range: skos:Concept (0..1)</p>
+    </dd>
+    
+    <dt id="title-property">title</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:distribution_title">
+      <code>Distribution</code></a>
+      <code>dct:title</code>
+      <p>This property contains a name given to the Distribution.</p>
+      <p>Range: rdfs:Literal (0..n)</p>
+    </dd>
+      
+    <dt id="modified-property">update/ modification date</dt>
+    <dd>
+      A reference to an [[Vocab-DCAT]]
+      <a href="https://www.w3.org/TR/vocab-dcat/#Property:distribution_modified">
+      <code>Distribution</code></a>
+      <code>dct:modified</code>
+      <p>This property contains the most recent date on which the Distribution was changed or modified.</p>
+      <p>Range: rdfs:Literal typed as xsd:date or xsd:dateTime (0..1)</p>
+    </dd>
+  
+      
+    </section>
+
+    <section id="Agent">
+      <h3 role="heading" aria-level="2" id="agent">Agent</h3>
+      <p>This class describes an Agent that publishes Data. It <em class="rfc2119" title="MAY">MAY</em>  have all fields provided by the <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a> and <a href="http://xmlns.com/foaf/spec/">foaf:Organization</a> Vocabulary Specification.
+        (ActivityPub: )
+      </p>
+
+      <p>
+        Agent objects <em class="rfc2119" title="MUST">MUST</em> have the following properties:
+      </p>
+
+    <dt id="name-property">name</dt>
+		<dd>
+		  A reference to an [[DCAT-AP]]
+		  <a href="">
+			<code>Agent</code></a>
+		  <code>foaf:name</code>
+		  <p>This property contains a name of the agent. This property can be repeated for different versions of the name (e.g. the name in different languages)</p>
+		  <p>Range: rdfs:Literal (1..n)</p>
+		</dd>
+
+      <p>
+        Agent objects <em class="rfc2119" title="SHOULD">SHOULD</em> have the following properties:
+      </p>
+
+    <dt id="type-property">type</dt>
+		<dd>
+		  A reference to an [[DCAT-AP]]
+		  <a href="">
+			<code>Agent</code></a>
+		  <code>dct:type</code>
+		  <p>This property refers to a type of the agent that makes the Catalogue or Dataset available.</p>
+		  <p>Range: skos:Concept (0..1)</p>
+		</dd>
+  
+      
+    </section>
+
+    <section id="CategoryScheme">
+      <h3 role="heading" aria-level="2" id="CategoryScheme">Category Scheme</h3>
+      <p>The knowledge organization system (KOS) used to represent themes/categories of datasets in the catalog. 
+        It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="https://www.w3.org/TR/skos-reference/#schemes">skos:ConceptScheme</a> Vocabulary Specification. 
+        The Category Scheme is being used in the Catalog Themes and Dataset Theme.
+        (ActivityPub: )
+      </p>
+
+      <p>
+        Category Scheme objects <em class="rfc2119" title="MUST">MUST</em> have the following properties:
+      </p>
+
+      <dt id="title-property">title</dt>
+      <dd>
+        A reference to an [[DCAT-AP]]
+        <a href="">
+        <code>Category Scheme</code></a>
+        <code>dct:title</code> and [[Vocab-DCAT]] <a href="https://www.w3.org/TR/vocab-dcat/#class-concept-scheme"><code>Concept scheme</code></a>
+        <p>This property contains a name of the category scheme. May be repeated for different versions of the name</p>
+        <p>Range: rdfs:Literal (1..n)</p>
+      </dd>
+  
+      
+    </section>
+
+    <section id="Category">
+      <h3 role="heading" aria-level="2" id="category">Category</h3>
+      <p>A category or a theme used to describe datasets in the catalog.
+        It is recommended to use either skos:inScheme or skos:topConceptOf on every skos:Concept used to classify datasets to link it to the concept scheme it belongs to. This concept scheme is typically associated with the catalog using dcat:themeTaxonomy.
+        It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="https://www.w3.org/TR/skos-reference/#concepts">skos:ConceptScheme</a> Vocabulary Specification. 
+        The Category is being used in the Catalog Themes and Dataset Theme.
+        (ActivityPub: )
+      </p>
+
+      <p>
+        Category objects <em class="rfc2119" title="MUST">MUST</em> have the following properties:
+      </p>
+
+      <dt id="preferredlabel-property">preferred label</dt>
+      <dd>
+        A reference to an [[DCAT-AP]]
+        <a href="">
+        <code>Category Scheme</code></a>
+        <code>skos:prefLabel</code> and [[Vocab-DCAT]] <a href="https://www.w3.org/TR/vocab-dcat/#class-concept"><code>Concept</code></a>
+        <p>This property contains a preferred label of the category. This property can be repeated for parallel language versions of the label.</p>
+        <p>Range: rdfs:Literal (1..n)</p>
+      </dd>
+  
+      
+    </section>
+
+    <section id="Checksum">
+      <h3 role="heading" aria-level="2" id="checksum">Checksum</h3>
+      <p>
+        (ActivityPub: )
+      </p>
+
+      <p>
+        Checksum objects <em class="rfc2119" title="MUST">MUST</em> have the following properties:
+      </p>
+
+      <p>
+        Checksum objects <em class="rfc2119" title="SHOULD">SHOULD</em> have the following properties:
+      </p>
+      
+      <p>
+        Checksum objects <em class="rfc2119" title="MAY">MAY</em> have the following properties:
+      </p>
+  
+      
+    </section>
+
+    <section id="Identifier">
+      <h3 role="heading" aria-level="2" id="identifier">Identifier</h3>
+      <p>
+        (ActivityPub: )
+      </p>
+
+      <p>
+        Identifier objects <em class="rfc2119" title="MUST">MUST</em> have the following properties:
+      </p>
+
+      <p>
+        Identifier objects <em class="rfc2119" title="SHOULD">SHOULD</em> have the following properties:
+      </p>
+      
+      <p>
+        Identifier objects <em class="rfc2119" title="MAY">MAY</em> have the following properties:
+      </p>
+  
+      
+    </section>
   </section>
 </body>
 
