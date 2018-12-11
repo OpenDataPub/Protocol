@@ -893,7 +893,8 @@
 
     <section id="Checksum">
       <h3 role="heading" aria-level="2" id="checksum">Checksum</h3>
-      <p>
+      <p>A Checksum is value that allows the contents of a file to be authenticated. Even small changes to the content of the file will change its checksum. This class allows the results of a variety of checksum and cryptographic message digest algorithms to be represented.
+        It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="https://spdx.org/rdf/terms/#Checksum">spdx:Checksum</a> Vocabulary Specification. 
         (ActivityPub: )
       </p>
 
@@ -901,20 +902,31 @@
         Checksum objects <em class="rfc2119" title="MUST">MUST</em> have the following properties:
       </p>
 
-      <p>
-        Checksum objects <em class="rfc2119" title="SHOULD">SHOULD</em> have the following properties:
-      </p>
-      
-      <p>
-        Checksum objects <em class="rfc2119" title="MAY">MAY</em> have the following properties:
-      </p>
-  
+      <dt id="algorithm-property">algorithm</dt>
+      <dd>
+        A reference to an [[DCAT-AP]]
+        <a href="">
+        <code>Checksum</code></a>
+        <code>spdx:algorithm</code>
+        <p>This property identifies the algorithm used to produce the subject Checksum. Currently, SHA-1 is the only supported algorithm. It is anticipated that other algorithms will be supported at a later time.</p>
+        <p>Range: spdx:checksumAlgorithm_sha1 (1..1)</p>
+      </dd>  
+
+      <dt id="checksumvalue-property">checksum value</dt>
+      <dd>
+        A reference to an [[DCAT-AP]]
+        <a href="">
+        <code>Checksum</code></a>
+        <code>spdx:checksumValue</code>
+        <p>This property provides a lower case hexadecimal encoded digest value produced using a specific algorithm.</p>
+        <p>Range: rdfs:Literal typed as xsd:hexBinary (1..1)</p>
+      </dd>  
       
     </section>
 
     <section id="Identifier">
       <h3 role="heading" aria-level="2" id="identifier">Identifier</h3>
-      <p>
+      <p>This is based on the [[UNCEFACT]] Identifier class. The type of the class is the adms:identifier.
         (ActivityPub: )
       </p>
 
@@ -922,16 +934,72 @@
         Identifier objects <em class="rfc2119" title="MUST">MUST</em> have the following properties:
       </p>
 
+      <dt id="notation-property">notation</dt>
+      <dd>
+        A reference to an [[DCAT-AP]]
+        <a href="">
+        <code>Identifier</code></a>
+        <code>sskos:notation</code>
+        <p>This property contains a string that is an identifier in the context of the identifier scheme referenced by its datatype.</p>
+        <p>Range: rdfs:Literal typed with the URI of one of the members of the DataCite Resource Identifier Scheme (0..1)</p>
+      </dd>  
+    </section>
+
+    <section id="Licence">
+      <h3 role="heading" aria-level="2" id="Licence">Licence</h3>
+      <p>A legal document giving official permission to do something with a Resource.
+        It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="http://purl.org/dc/terms/LicenseDocument">dct:LicenseDocument</a> Dublin Core Metadata Initiative.
+        (ActivityPub: )
+      </p>
+
       <p>
         Identifier objects <em class="rfc2119" title="SHOULD">SHOULD</em> have the following properties:
       </p>
-      
-      <p>
-        Identifier objects <em class="rfc2119" title="MAY">MAY</em> have the following properties:
-      </p>
-  
-      
+
+      <dt id="licencetype-property">licence type</dt>
+        <dd>
+          A reference to an [[DCAT-AP]]
+          <a href="">
+          <code>Licence</code></a>
+          <code>dct:type</code>
+          <p>This property refers to a type of licence, e.g. indicating ‘public domain’ or ‘royalties required’.</p>
+          <p>Range: skos:Concept (0..n)</p>
+        </dd> 
+
     </section>
+
+    <section id="PeriodOfTime">
+        <h3 role="heading" aria-level="2" id="PeriodOfTime">Period Of Time</h3>
+        <p>The Period of Time is a range of dates.
+          It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="http://purl.org/dc/terms/PeriodOfTime">dct:PeriodOfTime</a> Dublin Core Metadata Initiative.
+          (ActivityPub: )
+        </p>
+  
+        <p>
+          Identifier objects <em class="rfc2119" title="MAY">MAY</em> have the following properties:
+        </p>
+
+        <dt id="startDate-property">start date/time</dt>
+        <dd>
+          A reference to an [[DCAT-AP]]
+          <a href="">
+          <code>PeriodOfTime</code></a>
+          <code>schema:startDate</code>
+          <p>This property contains the start of the period.</p>
+          <p>Range: rdfs:Literal typed as xsd:date or xsd:dateTime (0..1)</p>
+        </dd>    
+
+        <dt id="endDate-property">end date/time</dt>
+        <dd>
+          A reference to an [[DCAT-AP]]
+          <a href="">
+          <code>PeriodOfTime</code></a>
+          <code>schema:endDate</code>
+          <p>This property contains the end of the period.</p>
+          <p>Range: rdfs:Literal typed as xsd:date or xsd:dateTime (0..1)</p>
+        </dd>  
+          
+      </section>
   </section>
 </body>
 
