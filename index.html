@@ -1301,49 +1301,6 @@
         </pre>
           
       </section>
-
-      <section id="Instance">
-        <h3 role="heading" aria-level="2" id="Instance">Instance</h3>
-        <p>The Instance is a description of a server in the OpenDataPub network.
-        </p>
-  
-        <p>
-          Instance objects <em class="rfc2119" title="MUST">MUST</em> have the following properties:
-        </p>
-
-        <dt id="id-property">Identifier</dt>
-        <dd>
-          <code>Instance</code></a>
-          <code>odp:identifier</code>
-          <p>This contains the URL to the instance, which is the unique identifer.</p>
-          <p>Range: rdfs:Literal (1..1)</p>
-        </dd>    
-
-        <p>
-          Instance objects <em class="rfc2119" title="SHOULD">SHOULD</em> have the following properties:
-        </p>
-
-        <dt id="endpoint-property">API Endpoint</dt>
-        <dd>
-          <code>Instance</code></a>
-          <code>odp:endpoint</code>
-          <p>This property contains URL to the OpenDataPub API endpoint. It has to be supplied if the endpoint URL varies from the default URL.</p>
-          <p>Range: rdfs:Literal (0..1)</p>
-        </dd>  
-          
-
-        <pre class="example highlight xml">
-          <xmp>
-            <odp:instance>
-              <!-- must -->
-              <odp:identifier>http://www.govdata.de</odp:identifier>
-              <!-- should -->
-              <odp:endpoint>http://www.govdata.de/odp/api/</odp:endpoint>
-          </odp:instance>          
-          </xmp>
-        </pre>
-          
-      </section>
   </section>
 
   <section id="collections">
@@ -1353,7 +1310,7 @@
         <h2 role="heading" aria-level="2">Outbox</h2>
         <p>
           The outbox is discovered through the <code>outbox</code>
-          property of a <a href="#server">server's</a> info API.
+          property of an server API.
           The <code>outbox</code> MUST be an
           <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-orderedcollection">
             <code>OrderedCollection</code></a>.
@@ -1375,7 +1332,7 @@
 
         <p>
           The inbox is discovered through the <code>inbox</code>
-          property of a <a href="#server">server's</a> info API.
+          property of a <a href="#server">server's</a> API.
           The <code>inbox</code> MUST be an
           <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-orderedcollection">
             <code>OrderedCollection</code></a>.
@@ -1388,7 +1345,7 @@
 
         <p>
           The server MUST perform de-duplication of datasets returned by
-          the inbox. Duplication can occur if an dataset is published by a member of the circle of trust and by a server the server is subscribed to.
+          the inbox. Duplication can occur if an dataset is published by a member of the ring of trust and by a server the server is subscribed to.
           Such deduplication MUST be performed by comparing the
           <code>id</code> of the activities and dropping any activities
           already seen.
@@ -1399,101 +1356,6 @@
           with behaviour described in <a href="#delivery">Delivery</a>.
         </p>
     </section>
-
-    <section id="cot">
-      <h2 role="heading" aria-level="2">Circle of Trust</h2>
-
-      <p>
-        Every server MUST have a circle of trust collection. This is a list of every server who this server trusts to accept datasets from. 
-        The circle of trust collection MUST be an CircleOfTrustCollection.
-      </p>        
-
-      <h3 role="heading" aria-level="2" id="CircleOfTrustCollection">CircleOfTrustCollection</h3>
-      <p>The CircleOfTrustCollection is a collection of Circle of Trust Entries.
-      </p>
-
-      <p>
-        CircleOfTrustCollection objects <em class="rfc2119" title="MUST">MUST</em> have the following properties:
-      </p>
-
-      <dt id="Members-property">Members</dt>
-      <dd>
-        <code>CircleOfTrustCollection</code></a>
-        <code>odp:members</code>
-        <p>This contains a list of members of the circle of trust. There must be at least one entry, which would be the server itself.</p>
-        <p>Range: odp:Instance (1..n)</p>
-      </dd>    
-
-      <p>
-        CircleOfTrustCollection objects <em class="rfc2119" title="MAY">MAY</em> have the following properties:
-      </p>
-      <dt id="CircleLeader-property">Circle Leader</dt>
-      <dd>
-        <code>CircleOfTrustCollection</code></a>
-        <code>odp:circleleader</code>
-        <p>This contains a single member of the circle of trust that is the circle leader. If there is no circle leader this property is empty and can be omitted.</p>
-        <p>Range: odp:Instance (0..1)</p>
-      </dd> 
-
-      <pre class="example highlight xml">
-        <xmp>
-          <odp:CircleOfTrustCollection>
-            <!-- must -->
-            <odp:members>
-              <odp:instance>
-                <odp:identifier>http://www.govdata.de</odp:identifier>
-                <odp:endpoint>http://www.govdata.de/odp/api/</odp:endpoint>
-              </odp:instance>
-            </odp:members>
-            <!-- may -->
-            <odp:circleleader>
-              <odp:identifier>http://www.govdata.de</odp:identifier>
-              <odp:endpoint>http://www.govdata.de/odp/api/</odp:endpoint>
-            </odp:circleleader>            
-        </odp:CircleOfTrustCollection>          
-        </xmp>
-      </pre>
-
-    </section>
-
-    <section id="sc">
-      <h2 role="heading" aria-level="2">Subscription Collection</h2>
-
-      <p>
-        Every server MUST have a subscription collection. This is a list of every server who has subscribed to the datasets of a server. 
-        The subscription collection MUST be an SubscriptionCollection.
-      </p>        
-
-      <h3 role="heading" aria-level="2" id="SubscriptionCollection">SubscriptionCollection</h3>
-      <p>The SubscriptionCollection is a collection of instances.
-      </p>
-
-      <p>
-        SubscriptionCollection objects <em class="rfc2119" title="MAY">MAY</em> have the following properties:
-      </p>
-      <dt id="Members-property">Members</dt>
-      <dd>
-        <code>SubscriptionCollection</code></a>
-        <code>odp:members</code>
-        <p>This contains all members that are subscribed to datasets of this server.</p>
-        <p>Range: odp:Instance (0..n)</p>
-      </dd> 
-    </section>
-
-    <pre class="example highlight xml">
-      <xmp>
-        <odp:SubscriptionCollection>
-          <!-- may -->
-          <odp:members>
-            <odp:instance>
-              <odp:identifier>http://www.govdata.de</odp:identifier>
-              <odp:endpoint>http://www.govdata.de/odp/api/</odp:endpoint>
-            </odp:instance>
-          </odp:members>    
-      </odp:SubscriptionCollection>          
-      </xmp>
-    </pre>
-
   </section>
   
   <section id="communication">
@@ -1504,13 +1366,13 @@
     </p>
     <p>
     Servers communicate with other servers and propagate information across the open data network by posting datasets to server inbox endpoints. 
-    The server inbox endpoints are determinded by a circle of trust list.
+    The server inbox endpoints are determinded by a ring of trust list.
     The dataset is the central class, to which all other classes relate, therefor only the datasets MUST be propagated across the network. 
     </p>
     <p>
-    In order to propagate updates throughout the open data network, datasets are sent to all recipients in a servers circle of trust and subscription collection.
-    The circle of trust is a closed circle in which each member trust the datasets from all other members. The servers MUST therefore store the datasets, so they can be found.
-    In contrast to the circle of trust the SubscribtionCollection is a more loose association. 
+    In order to propagate updates throughout the open data network, datasets are sent to all recipients in a servers ring of trust and subscription collection.
+    The ring of trust is a closed ring in which each member trust the datasets from all other members. The servers MUST therefore store the datasets, so they can found.
+    In contrast to the ring of trust the SubscribtionCollection is a more loose association. 
     Server B can request to be added to server A's SubscribtionCollection and will then be delivered with the updates regarding all datasets. 
     But a subscriber in the SubscribtionCollection, like server B, is not trusted to produce legitimate datasets and is therefore not allowed to write back in A's inbox.
     The result is a one-way delivery of datasets.
@@ -1520,21 +1382,17 @@
     <ul>
         <li>
           an dataset being created in an server's <a href="#outbox">outbox</a>
-          with everyone in the circle of trust as the recipient.
+          with everyone in the ring of trust as the recipient.
         </li>
         <li>
           an dataset being modified in an server's <a href="#outbox">outbox</a>
-          with everyone in the circle of trust as the recipient.
+          with everyone in the ring of trust as the recipient.
         </li>
         <li>
           an dataset being deleted in an server's <a href="#outbox">outbox</a>
-          with everyone in the circle of trust as the recipient.
+          with everyone in the ring of trust as the recipient.
         </li>
     </ul>
-
-  <section id="endpoints">
-    <h2 role="heading" aria-level="2" id="endpoints">Endpoints</h2>
-  </section> 
 
   </section>
 </body>
