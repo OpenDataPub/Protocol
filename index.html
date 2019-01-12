@@ -1353,7 +1353,7 @@
         <h2 role="heading" aria-level="2">Outbox</h2>
         <p>
           The outbox is discovered through the <code>outbox</code>
-          property of a <a href="#server">server's</a> info API.
+          property of a <a href="#endpointinfo">server's info endpoint.</a>
           The <code>outbox</code> MUST be an
           <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-orderedcollection">
             <code>OrderedCollection</code></a>.
@@ -1365,7 +1365,7 @@
         </p>
         <p>
           The outbox accepts HTTP POST requests, with behaviour described in
-          <a href="#server-to-server-interactions">Server to Server
+          <a href="#communication">communication
             Interactions</a>.
         </p>
       </section>
@@ -1375,7 +1375,7 @@
 
         <p>
           The inbox is discovered through the <code>inbox</code>
-          property of a <a href="#server">server's</a> info API.
+          property of a <a href="#endpointinfo">server's info endpoint</a>.
           The <code>inbox</code> MUST be an
           <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-orderedcollection">
             <code>OrderedCollection</code></a>.
@@ -1396,7 +1396,7 @@
 
         <p>
           The inboxes of actors on federated servers accepts HTTP POST requests,
-          with behaviour described in <a href="#delivery">Delivery</a>.
+          with behaviour described in <a href="#communication">Delivery</a>.
         </p>
     </section>
 
@@ -1534,6 +1534,19 @@
 
   <section id="endpoints">
     <h2 role="heading" aria-level="2" id="endpoints">Endpoints</h2>
+    <p>
+      Every instance has five endpoints that are needed for the communication. The Endpoint SHOULD be reachable by a central URL like "[baseURL]/api/", but can be located anywhere else. 
+    </p>
+    <h3 id="endpointinbox">Inbox</h3>
+    <p>The inbox</p>
+    <h3 id="endpointoutbox">Outbox</h3>
+    <p>The outbox</p>
+    <h3 id="endpointinfo">Info</h3>
+    <p>The info endpoint MUST output the Instance Datatype filled with the information about the instance. With this information the endpoints can be queried and supply additional information in case of an extension.</p>
+    <h3 id="endpointcircleoftrust">CircleOfTrust</h3>
+    <p>The Circle of Trust endpoint MUST output the CircleOfTrustCollection of this instance. The Circle of Trust is supposed to be public, so instances can discover other instances.</p>
+    <h3 id="endpointsubscription">Subscription</h3>
+    <p>The Subscription endpoint MUST output the SubscriptionCollection of this instance. Subscribers are public and help with discoverability of the open data network.</p>
   </section> 
 
   </section>
