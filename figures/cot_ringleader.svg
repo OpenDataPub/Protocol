@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generiert durch Microsoft Visio, SVG Export cot_ringleader.svg Page-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="6.33372in" height="3.45735in"
+		viewBox="0 0 456.028 248.929" xml:space="preserve" color-interpolation-filters="sRGB" class="st15">
+	<v:documentProperties v:langID="1031" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvNoAutoConnect" v:prompt="" v:val="VT0(1):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#5b9bd5;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st2 {stroke:#5592c9;stroke-dasharray:3.5,2.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st3 {fill:#ffffff;font-family:Calibri;font-size:1.00001em;font-weight:bold}
+		.st4 {font-size:1em}
+		.st5 {fill:#73ae42;stroke:#6ca43d;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st6 {marker-end:url(#mrkr3-51);stroke:#6ca43d;stroke-dasharray:3.5,2.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st7 {fill:#6ca43d;fill-opacity:1;stroke:#6ca43d;stroke-opacity:1;stroke-width:0.13368983957219}
+		.st8 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st9 {fill:#53802e;font-family:Calibri;font-size:0.666664em}
+		.st10 {marker-end:url(#mrkr3-51);stroke:#6ca43d;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st11 {fill:#a5a5a5;fill-opacity:0;stroke:#a5a5a5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st12 {fill:#ffffff;stroke:#a5a5a5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st13 {fill:#a5a5a5;font-family:Calibri;font-size:0.666664em;font-weight:bold}
+		.st14 {fill:#a5a5a5;font-family:Calibri;font-size:0.666664em}
+		.st15 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend3">
+			<path d="M 2 1 L 0 0 L 2 -1 " style="stroke-linecap:round;stroke-linejoin:round;fill:none"/>
+		</g>
+		<marker id="mrkr3-51" class="st7" v:arrowType="3" v:arrowSize="3" orient="auto" markerUnits="strokeWidth"
+				overflow="visible">
+			<use xlink:href="#lend3" transform="scale(-7.48,-7.48) "/>
+		</marker>
+	</defs>
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<v:userDefs>
+			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
+		</v:userDefs>
+		<title>Zeichenblatt-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="Verbinder" v:index="0"/>
+		<g id="group2-1" transform="translate(18.25,-147.766)" v:mID="2" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ShowActor" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="ShowDestruction" v:prompt="" v:val="VT0(0):5"/>
+			</v:userDefs>
+			<title>Akteur-Lebenslinie</title>
+			<desc>New Participant (:instance)</desc>
+			<g id="shape3-2" v:mID="3" v:groupContext="shape" transform="translate(19.8425,-9.92126)">
+				<title>Tabelle.3</title>
+				<rect x="0" y="223.418" width="51.0236" height="25.5118" class="st1"/>
+			</g>
+			<g id="shape4-4" v:mID="4" v:groupContext="shape" transform="translate(36.8504,-48.8976)">
+				<title>Tabelle.4</title>
+				<path d="M3.4 248.93 L3.4 231.92 L3.4 238.72 L0 238.72 L0 225.12 L1.7 223.42 L15.31 223.42 L17.01 225.12 L17.01 238.72
+							 L13.61 238.72 L13.61 231.92 L13.61 248.93 L8.5 248.93 L8.5 235.32 L8.5 248.93 L3.4 248.93 ZM11.91 218.32
+							 A3.40157 3.40157 -180 1 0 5.1 218.32 A3.40157 3.40157 -180 1 0 11.91 218.32 Z" class="st1"/>
+			</g>
+			<g id="shape5-6" v:mID="5" v:groupContext="shape" transform="translate(30.2362,129.766)">
+				<title>Tabelle.5</title>
+			</g>
+			<g id="shape6-8" v:mID="6" v:groupContext="shape" transform="translate(294.284,248.929) rotate(90)">
+				<title>Tabelle.6</title>
+				<path d="M0 248.93 L105.06 248.93" class="st2"/>
+			</g>
+			<g id="shape2-11" v:mID="2" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="45.3543" cy="226.252" width="90.71" height="45.3543"/>
+				<rect x="0" y="203.575" width="90.7087" height="45.3543" class="st1"/>
+				<text x="5.25" y="222.65" class="st3" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>New Participant<v:newlineChar/><tspan
+							x="19.08" dy="1.2em" class="st4">(:instance)</tspan></text>			</g>
+		</g>
+		<g id="group13-15" transform="translate(180.959,-147.766)" v:mID="13" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ShowActor" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="ShowDestruction" v:prompt="" v:val="VT0(0):5"/>
+			</v:userDefs>
+			<title>Akteur-Lebenslinie.13</title>
+			<desc>Any instance of the circle of trust (:instance)</desc>
+			<g id="shape14-16" v:mID="14" v:groupContext="shape" transform="translate(29.1968,-9.92126)">
+				<title>Tabelle.14</title>
+				<rect x="0" y="223.418" width="51.0236" height="25.5118" class="st1"/>
+			</g>
+			<g id="shape15-18" v:mID="15" v:groupContext="shape" transform="translate(46.2047,-48.8976)">
+				<title>Tabelle.15</title>
+				<path d="M3.4 248.93 L3.4 231.92 L3.4 238.72 L0 238.72 L0 225.12 L1.7 223.42 L15.31 223.42 L17.01 225.12 L17.01 238.72
+							 L13.61 238.72 L13.61 231.92 L13.61 248.93 L8.5 248.93 L8.5 235.32 L8.5 248.93 L3.4 248.93 ZM11.91 218.32
+							 A3.40157 3.40157 -180 1 0 5.1 218.32 A3.40157 3.40157 -180 1 0 11.91 218.32 Z" class="st1"/>
+			</g>
+			<g id="shape16-20" v:mID="16" v:groupContext="shape" transform="translate(36.4724,129.766)">
+				<title>Tabelle.16</title>
+			</g>
+			<g id="shape17-22" v:mID="17" v:groupContext="shape" transform="translate(303.638,248.929) rotate(90)">
+				<title>Tabelle.17</title>
+				<path d="M0 248.93 L105.06 248.93" class="st2"/>
+			</g>
+			<g id="shape13-25" v:mID="13" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="54.7087" cy="226.252" width="109.42" height="45.3543"/>
+				<rect x="0" y="203.575" width="109.417" height="45.3543" class="st1"/>
+				<text x="6.62" y="215.45" class="st3" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Any instance of the <tspan
+							x="21.84" dy="1.2em" class="st4">circle of trust<v:newlineChar/></tspan><tspan x="28.43" dy="1.2em"
+							class="st4">(:instance)</tspan></text>			</g>
+		</g>
+		<g id="shape18-30" v:mID="18" v:groupContext="shape" transform="translate(-9.01012,206.227) rotate(-90)">
+			<title>Aktivierung.18</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="240.425" width="88.0562" height="8.50394" class="st5"/>
+		</g>
+		<g id="group20-32" transform="translate(362.376,-147.766)" v:mID="20" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ShowActor" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="ShowDestruction" v:prompt="" v:val="VT0(0):5"/>
+			</v:userDefs>
+			<title>Akteur-Lebenslinie.20</title>
+			<desc>Ring leader (:instance)</desc>
+			<g id="shape21-33" v:mID="21" v:groupContext="shape" transform="translate(12.189,-9.92126)">
+				<title>Tabelle.21</title>
+				<rect x="0" y="223.418" width="51.0236" height="25.5118" class="st1"/>
+			</g>
+			<g id="shape22-35" v:mID="22" v:groupContext="shape" transform="translate(29.1968,-48.8976)">
+				<title>Tabelle.22</title>
+				<path d="M3.4 248.93 L3.4 231.92 L3.4 238.72 L0 238.72 L0 225.12 L1.7 223.42 L15.31 223.42 L17.01 225.12 L17.01 238.72
+							 L13.61 238.72 L13.61 231.92 L13.61 248.93 L8.5 248.93 L8.5 235.32 L8.5 248.93 L3.4 248.93 ZM11.91 218.32
+							 A3.40157 3.40157 -180 1 0 5.1 218.32 A3.40157 3.40157 -180 1 0 11.91 218.32 Z" class="st1"/>
+			</g>
+			<g id="shape23-37" v:mID="23" v:groupContext="shape" transform="translate(25.1339,129.766)">
+				<title>Tabelle.23</title>
+			</g>
+			<g id="shape24-39" v:mID="24" v:groupContext="shape" transform="translate(286.63,248.929) rotate(90)">
+				<title>Tabelle.24</title>
+				<path d="M0 248.93 L105.06 248.93" class="st2"/>
+			</g>
+			<g id="shape20-42" v:mID="20" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="37.7008" cy="226.252" width="75.41" height="45.3543"/>
+				<rect x="0" y="203.575" width="75.4016" height="45.3543" class="st1"/>
+				<text x="9.6" y="222.65" class="st3" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Ring leader<v:newlineChar/><tspan
+							x="11.43" dy="1.2em" class="st4">(:instance)</tspan></text>			</g>
+		</g>
+		<g id="shape27-46" v:mID="27" v:groupContext="shape" v:layerMember="0" transform="translate(400.077,-69.8133)">
+			<title>Antwortnachricht</title>
+			<desc>JoinRequestAnswer</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="-82.2047" cy="256.016" width="73.59" height="17.6036"/>
+			<path d="M0 256.02 L-164.41 256.02" class="st6"/>
+			<rect v:rectContext="textBkgnd" x="-114.093" y="251.216" width="63.7765" height="9.59985" class="st8"/>
+			<text x="-114.09" y="258.42" class="st9" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>JoinRequestAnswer</text>		</g>
+		<g id="shape28-54" v:mID="28" v:groupContext="shape" v:layerMember="0" transform="translate(231.415,-38.6322)">
+			<title>Antwortnachricht.28</title>
+			<desc>JoinRequestAnswer</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="-81.7795" cy="241.843" width="73.59" height="17.6036"/>
+			<path d="M0 241.84 L-163.56 241.84" class="st6"/>
+			<rect v:rectContext="textBkgnd" x="-113.668" y="237.043" width="63.7765" height="9.59985" class="st8"/>
+			<text x="-113.67" y="244.24" class="st9" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>JoinRequestAnswer</text>		</g>
+		<g id="shape50-61" v:mID="50" v:groupContext="shape" transform="translate(-181.073,206.227) rotate(-90)">
+			<title>Aktivierung</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="240.425" width="88.0562" height="8.50394" class="st5"/>
+		</g>
+		<g id="shape51-63" v:mID="51" v:groupContext="shape" transform="translate(155.399,186.203) rotate(-90)">
+			<title>Aktivierung.51</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="240.425" width="68.0315" height="8.50394" class="st5"/>
+		</g>
+		<g id="shape52-65" v:mID="52" v:groupContext="shape" v:layerMember="0" transform="translate(67.8563,-106.664)">
+			<title>Asynchrone Nachricht</title>
+			<desc>JoinRequest</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="81.7795" cy="241.843" width="49.14" height="17.6036"/>
+			<path d="M0 241.84 L163.56 241.84" class="st10"/>
+			<rect v:rectContext="textBkgnd" x="62.1159" y="237.043" width="39.3275" height="9.59985" class="st8"/>
+			<text x="62.12" y="244.24" class="st9" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>JoinRequest</text>		</g>
+		<g id="shape53-72" v:mID="53" v:groupContext="shape" v:layerMember="0" transform="translate(239.919,-106.664)">
+			<title>Asynchrone Nachricht.53</title>
+			<desc>JoinRequest</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="77.9528" cy="241.843" width="49.14" height="17.6036"/>
+			<path d="M0 241.84 L155.91 241.84" class="st10"/>
+			<rect v:rectContext="textBkgnd" x="58.2891" y="237.043" width="39.3275" height="9.59985" class="st8"/>
+			<text x="58.29" y="244.24" class="st9" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>JoinRequest</text>		</g>
+		<g id="group55-79" transform="translate(240.945,-57.0574)" v:mID="55" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>Schleifenfragment</title>
+			<g id="shape55-80" v:mID="55" v:groupContext="groupContent">
+				<rect x="0" y="203.575" width="172.913" height="45.3543" class="st11"/>
+			</g>
+			<g id="shape56-82" v:mID="56" v:groupContext="shape" transform="translate(0,-27.7508)">
+				<title>Tabelle.56</title>
+				<desc>loop</desc>
+				<v:userDefs>
+					<v:ud v:nameU="FoldSize" v:prompt="" v:val="VT0(0.098425196850394):24"/>
+					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#96afcf)"/>
+					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#1f477d)"/>
+					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
+					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
+					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#a5a5a5)"/>
+					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#a5a5a5)"/>
+					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#ffffff)"/>
+					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#a5a5a5)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="32" cy="240.128" width="64" height="17.6036"/>
+				<path d="M0 248.93 L56.91 248.93 L64 241.84 L64 231.33 L0 231.33 L0 248.93 Z" class="st12"/>
+				<text x="4" y="242.53" class="st13" v:langID="1031"><v:paragraph/><v:tabList/>loop</text>			</g>
+			<g id="shape57-85" v:mID="57" v:groupContext="shape" transform="translate(0,-10.1472)">
+				<title>Tabelle.57</title>
+				<desc>for each member of the circle of trust</desc>
+				<v:userDefs>
+					<v:ud v:nameU="msvQuickStyleVariationRestore" v:prompt="" v:val="VT0(2):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="65.9621" cy="240.128" width="131.93" height="17.6036"/>
+				<text x="4" y="242.53" class="st14" v:langID="1031"><v:paragraph/><v:tabList/>for each member of the circle of trust</text>			</g>
+		</g>
+	</g>
+</svg>
