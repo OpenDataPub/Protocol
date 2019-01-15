@@ -126,7 +126,7 @@
 				<v:ud v:nameU="ShowDestruction" v:prompt="" v:val="VT0(0):5"/>
 			</v:userDefs>
 			<title>Akteur-Lebenslinie.20</title>
-			<desc>Ring leader (:instance)</desc>
+			<desc>Circle leader (:instance)</desc>
 			<g id="shape21-33" v:mID="21" v:groupContext="shape" transform="translate(12.189,-9.92126)">
 				<title>Tabelle.21</title>
 				<rect x="0" y="223.418" width="51.0236" height="25.5118" class="st1"/>
@@ -148,10 +148,10 @@
 				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 				<v:textRect cx="37.7008" cy="226.252" width="75.41" height="45.3543"/>
 				<rect x="0" y="203.575" width="75.4016" height="45.3543" class="st1"/>
-				<text x="9.6" y="222.65" class="st3" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Ring leader<v:newlineChar/><tspan
+				<text x="6.73" y="222.65" class="st3" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Circle leader<v:newlineChar/><tspan
 							x="11.43" dy="1.2em" class="st4">(:instance)</tspan></text>			</g>
 		</g>
-		<g id="shape27-46" v:mID="27" v:groupContext="shape" v:layerMember="0" transform="translate(400.077,-69.8133)">
+		<g id="shape27-46" v:mID="27" v:groupContext="shape" v:layerMember="0" transform="translate(404.329,-52.8054)">
 			<title>Antwortnachricht</title>
 			<desc>JoinRequestAnswer</desc>
 			<v:userDefs>
@@ -186,12 +186,12 @@
 			</v:userDefs>
 			<rect x="0" y="240.425" width="88.0562" height="8.50394" class="st5"/>
 		</g>
-		<g id="shape51-63" v:mID="51" v:groupContext="shape" transform="translate(155.399,186.203) rotate(-90)">
+		<g id="shape51-63" v:mID="51" v:groupContext="shape" transform="translate(155.399,206.227) rotate(-90)">
 			<title>Aktivierung.51</title>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
 			</v:userDefs>
-			<rect x="0" y="240.425" width="68.0315" height="8.50394" class="st5"/>
+			<rect x="0" y="240.425" width="88.0562" height="8.50394" class="st5"/>
 		</g>
 		<g id="shape52-65" v:mID="52" v:groupContext="shape" v:layerMember="0" transform="translate(67.8563,-106.664)">
 			<title>Asynchrone Nachricht</title>
@@ -221,16 +221,16 @@
 			<path d="M0 241.84 L155.91 241.84" class="st10"/>
 			<rect v:rectContext="textBkgnd" x="58.2891" y="237.043" width="39.3275" height="9.59985" class="st8"/>
 			<text x="58.29" y="244.24" class="st9" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>JoinRequest</text>		</g>
-		<g id="group55-79" transform="translate(240.945,-57.0574)" v:mID="55" v:groupContext="group">
+		<g id="group54-79" transform="translate(240.945,-31.1811)" v:mID="54" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
 			</v:userDefs>
 			<title>Schleifenfragment</title>
-			<g id="shape55-80" v:mID="55" v:groupContext="groupContent">
-				<rect x="0" y="203.575" width="172.913" height="45.3543" class="st11"/>
+			<g id="shape54-80" v:mID="54" v:groupContext="groupContent">
+				<rect x="0" y="175.229" width="172.913" height="73.7008" class="st11"/>
 			</g>
-			<g id="shape56-82" v:mID="56" v:groupContext="shape" transform="translate(0,-27.7508)">
-				<title>Tabelle.56</title>
+			<g id="shape55-82" v:mID="55" v:groupContext="shape" transform="translate(0,-56.0972)">
+				<title>Tabelle.55</title>
 				<desc>loop</desc>
 				<v:userDefs>
 					<v:ud v:nameU="FoldSize" v:prompt="" v:val="VT0(0.098425196850394):24"/>
@@ -247,15 +247,16 @@
 				<v:textRect cx="32" cy="240.128" width="64" height="17.6036"/>
 				<path d="M0 248.93 L56.91 248.93 L64 241.84 L64 231.33 L0 231.33 L0 248.93 Z" class="st12"/>
 				<text x="4" y="242.53" class="st13" v:langID="1031"><v:paragraph/><v:tabList/>loop</text>			</g>
-			<g id="shape57-85" v:mID="57" v:groupContext="shape" transform="translate(0,-10.1472)">
-				<title>Tabelle.57</title>
-				<desc>for each member of the circle of trust</desc>
+			<g id="shape56-85" v:mID="56" v:groupContext="shape" transform="translate(0,-28.8937)">
+				<title>Tabelle.56</title>
+				<desc>for each member of the circle of trust if the isAccepted prop...</desc>
 				<v:userDefs>
 					<v:ud v:nameU="msvQuickStyleVariationRestore" v:prompt="" v:val="VT0(2):26"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-				<v:textRect cx="65.9621" cy="240.128" width="131.93" height="17.6036"/>
-				<text x="4" y="242.53" class="st14" v:langID="1031"><v:paragraph/><v:tabList/>for each member of the circle of trust</text>			</g>
+				<v:textRect cx="65.9621" cy="235.328" width="131.93" height="27.2035"/>
+				<text x="4" y="232.93" class="st14" v:langID="1031"><v:paragraph/><v:tabList/>for each member of the circle of trust<v:newlineChar/><tspan
+							x="4" dy="1.2em" class="st4">if the isAccepted property is positive</tspan></text>			</g>
 		</g>
 	</g>
 </svg>
