@@ -1508,11 +1508,11 @@
     The dataset is the central class, to which all other classes relate, therefor only the datasets MUST be propagated across the network. 
     </p>
     <p>
-    In order to propagate updates throughout the open data network, datasets are sent to all recipients in a servers circle of trust and subscription collection.
+    In order to propagate updates throughout the open data network, datasets are sent to all recipients in a server's circle of trust and subscription collection.
     The circle of trust is a closed circle in which each member trust the datasets from all other members. The servers MUST therefore store the datasets, so they can be found.
-    In contrast to the circle of trust the SubscribtionCollection is a more loose association. 
+    In contrast to the circle of trust, the SubscribtionCollection is a more loose association. 
     Server B can request to be added to server A's SubscribtionCollection and will then be delivered with the updates regarding all datasets. 
-    But a subscriber in the SubscribtionCollection, like server B, is not trusted to produce legitimate datasets and is therefore not allowed to write back in A's inbox.
+    However, a subscriber in the SubscribtionCollection, like server B, is not trusted to produce legitimate datasets and is therefore not allowed to write back in A's inbox.
     The result is a one-way delivery of datasets.
     </p>
 
@@ -1555,11 +1555,11 @@
 
     <section>
     <h3 id="endpointcircleoftrust">CircleOfTrust</h3>
-    <p>The circle of trust  endpoint MUST output the CircleOfTrustCollection of this instance. The Circle of Trust is supposed to be public, so instances can discover other instances.</p>
-    <p>The circle of trust  understands three messages. There is a JoinRequest, JoinRequestAnswer und a Leave message. </p>
+    <p>The circle of trust endpoint MUST output the CircleOfTrustCollection of this instance. The Circle of Trust is supposed to be public, so instances can discover other instances.</p>
+    <p>The circle of trust understands three messages. There is a JoinRequest, JoinRequestAnswer und a Leave message. </p>
     <p>For the circle of trust there are two options under which one can operate. The first being a circle of trust, that has a ring leader. This ring leader can decide whether to accept a join request or to deny it on its own without having to ask any other member.</p>
     <img alt="circle of trust join request with a ringleader" src="figures/cot_ringleader.svg">
-    <p>In this scenario the new participant, who wants to join the cirlce sends a Join request to any member of the circle.</p>
+    <p>In this scenario the new participant, who wants to join the circle sends a Join request to any member of the circle.</p>
     <pre class="example highlight xml">
       <xmp>
       <odp:JoinRequest>
@@ -1573,7 +1573,7 @@
       </xmp>
     </pre>
     <p>This exact request MUST then send by the instance already in the circle to the CircleOfTrust endpoint of the ring leader. The ring leader can identify this as a new Request by comparing his CircleOfTrustCollection to the request. 
-      After deciding on wheter to accept or deny the quest the ring leader sends its response, within the timelimit set by the sender of the request. 
+      After deciding on whether to accept or deny the quest the ring leader sends its response, within the time limit set by the sender of the request. 
       If the time of the timeout has run out, the ring leader MUST send a response with a negative isAccepted property and thereby denying the access to the circle of trust.
     </p>
     <pre class="example highlight xml">
@@ -1592,7 +1592,7 @@
     </pre>
     <p>
       The outcome of the decision is then reflected in the odp:isAccepted property. If the instance is being denied access to the circle, the process is finished. 
-      If it accepted the instance will be added to the CircleOfTrustCollection of the ring leader. The information is then spread across the cirlce of trust by send the JoinRequestAnswer to every instance of the circle of trust.
+      If it accepted, the instance will be added to the CircleOfTrustCollection of the ring leader. The information is then spread across the cirlce of trust by send the JoinRequestAnswer to every instance of the circle of trust.
       If the answer was positive the other instances MUST add the newly accepted instance to their CircleOfTrustCollection.
     </p>
     <p>
@@ -1651,7 +1651,7 @@
       After being added to the SubscriptionCollection of an instance, this instance will send every new dataset to the registered instance.
     </p>
     <p>
-      If the instance no longer wants to receive any updates it can send the Unsubscribe message to remove itself from the SubscriptionCollection.
+      If the instance no longer wants to receive any updates, it can send the Unsubscribe message to remove itself from the SubscriptionCollection.
     </p>
     <pre class="example highlight xml">
       <xmp>
