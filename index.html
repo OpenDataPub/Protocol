@@ -1505,7 +1505,7 @@
     <p>
     Servers communicate with other servers and propagate information across the open data network by posting datasets to server inbox endpoints. 
     The server inbox endpoints are determinded by a circle of trust list.
-    The dataset is the central class, to which all other classes relate, therefor only the datasets MUST be propagated across the network. 
+    The dataset is the central class, to which all other classes relate, therefore only the datasets MUST be propagated across the network. 
     </p>
     <p>
     In order to propagate updates throughout the open data network, datasets are sent to all recipients in a server's circle of trust and subscription collection.
@@ -1535,22 +1535,30 @@
   <section id="endpoints">
     <h2 role="heading" aria-level="2" id="endpoints">Endpoints</h2>
     <p>
-      Every instance has five endpoints that are needed for the communication. The Endpoint SHOULD be reachable by a central URL like "[baseURL]/api/", but can be located anywhere else. 
+      Every instance has five endpoints that are needed for the communication. The Endpoint SHOULD be reachable by a central URL like "[baseURL]/api/", but MAY be located anywhere else. 
     </p>
 
     <section>
-    <h3 id="endpointinbox">Inbox</h3>
-    <p>The inbox</p>
-    </section>
+        <h3 id="endpointoutbox">Outbox</h3>
+        <p>The outbox is discovered through the info endpoint of an instance. It therefore MUST be located under the URL "[endpoint]/outbox/". The outbox MUST be an <code>OrderedCollection</code>.
+          The outbox MAY contain other objects than datasets, but will only deliver them based on the criteria defined in <a href="communication">Communication</a>.</p>
+        <p>When the contents of the outbox are up to delivery, the instance MUST determine the recipients of the objects. 
+          Datasets MUST be delivered to all instance in the <code>CircleOfTrustCollection</code> as well as the instances in the <code>SubscriptionCollection</code>.
+          The instance MUST send them via POST to the inboxes of the instances, which can be derived from their <a href="endpointinfo">Info</a> endpoints.
+        </p>
+    </section>  
 
     <section>
-    <h3 id="endpointoutbox">Outbox</h3>
-    <p>The outbox</p>
-    </section>
+    <h3 id="endpointinbox">Inbox</h3>
+    <p>The inbox is discovered through the info endpoint of an instance. It therefore MUST be located under the URL "[endpoint]/inbox/". The inbox MUST be an <code>OrderedCollection</code> of <code>datasets</code>.</p>
+    <p>It MUST accept POST request with datasets as a payload. This way datasets can be transfered from one instance to another. 
+      It MUST also de-duplicate datasets and deny any non-member of its circles of trust to write into its inbox.
+      If that happens it SHOULD repond with a HTTP Status 405 Method Not Allowed upon receipt of a POST request.</p>
+    </section>    
 
     <section>
     <h3 id="endpointinfo">Info</h3>
-    <p>The info endpoint MUST output the Instance Datatype filled with the information about the instance. With this information the endpoints can be queried and supply additional information in case of an extension.</p>
+    <p>The info endpoint MUST output the <code>Instance</code> datatype filled with the information about the instance. With this information the endpoints can be queried and supply additional information in case of an extension.</p>
     </section>
 
     <section>
@@ -1606,7 +1614,7 @@
       The instance which acts as the circle leader MUST collect the JoinRequestAnswer message until all messages arrive. The vote is then evaluated by the instance and the answer, in form of a JoinRequestAnswer, MUST then be send to the new participant.
       If the instance acting as a circle leader is the only instance in the circle, it can answer the request on its own.
     </p>
-    <img alt=" a visualisation of the messageflow in a circle of trust join request without a circleleader" src="figures/cot_no_circleleader_vis.svg">
+    <img alt="a visualisation of the messageflow in a circle of trust join request without a circleleader" src="figures/cot_no_circleleader_vis.svg">
     </section>
 
     <section>
@@ -1677,6 +1685,11 @@
 
   <section>
       <h2 role="heading" aria-level="2" id="votes">Votes</h2>
+      <p></p>
+  </section>
+
+  <section>
+      <h2 role="heading" aria-level="2" id="dataset-activities">Dataset Activities</h2>
       <p></p>
   </section>
 
