@@ -1537,6 +1537,12 @@
     <p>
       Every instance has five endpoints that are needed for the communication. The Endpoint SHOULD be reachable by a central URL like "[baseURL]/api/", but MAY be located anywhere else. 
     </p>
+    
+    <section>
+        <h3 id="endpointinfo">Info</h3>
+        <p>The info endpoint MUST output the <code>Instance</code> datatype filled with the information about the instance. With this information the endpoints can be queried and supply additional information in case of an extension.</p>
+        <p>The info endpoint is central, because all other endpoints are located nested under his URL. It therefore definies the [endpoint] variable used in this chapter.</p>
+        </section>
 
     <section>
         <h3 id="endpointoutbox">Outbox</h3>
@@ -1557,13 +1563,8 @@
     </section>    
 
     <section>
-    <h3 id="endpointinfo">Info</h3>
-    <p>The info endpoint MUST output the <code>Instance</code> datatype filled with the information about the instance. With this information the endpoints can be queried and supply additional information in case of an extension.</p>
-    </section>
-
-    <section>
     <h3 id="endpointcircleoftrust">CircleOfTrust</h3>
-    <p>The circle of trust endpoint MUST output the CircleOfTrustCollection of this instance. The Circle of Trust is supposed to be public, so instances can discover other instances.</p>
+    <p>The CircleOfTrust is discovered through the info endpoint of an instance. It therefore MUST be located under the URL "[endpoint]/CircleOfTrust/". The circle of trust endpoint MUST output the CircleOfTrustCollection of this instance. The Circle of Trust is supposed to be public, so instances can discover other instances.</p>
     <p>The circle of trust understands three messages. There is a JoinRequest, JoinRequestAnswer und a Leave message. </p>
     <p>For the circle of trust there are two options under which one can operate. The first being a circle of trust, that has a circle leader. This circle leader can decide whether to accept a join request or to deny it on its own without having to ask any other member.</p>
     <img alt="circle of trust join request with a circleleader" src="figures/cot_circleleader.svg">
@@ -1620,6 +1621,7 @@
     <section>
     <h3 id="endpointsubscription">Subscription</h3>
     <p>
+      The Subscription is discovered through the info endpoint of an instance. It therefore MUST be located under the URL "[endpoint]/Subscription/".
       The Subscription endpoint MUST output the SubscriptionCollection of this instance. 
       Subscribers are public and help with discoverability of the open data network.
     </p>
