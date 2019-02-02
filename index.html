@@ -1687,8 +1687,51 @@
 
   <section>
       <h2 role="heading" aria-level="2" id="votes">Votes</h2>
-      <p></p>
-  </section>
+      <p>
+        In order to choose a circle leader in a circle of trust that has no leader so far, OpenDataPub needs a robust voting system.
+        To avoid re-inventing the wheel a method similar to the VoxPopuli protocol is chosen for the protocol.
+      </p>
+      <p>
+        When an instance wants to vote on a new circle leader, it sends the Vote message. The Vote message contains the instance attribute for the node, which the instance wants to be the next circle leader and a unique voteId as well as a timeout.
+        The message is being sent to all other instances in the circle. Upon receiving the message every instance has the time definiend in the timeout to send out its own Vote message to every other node, reference the id from the original message.
+      </p>
+      <pre class="example highlight xml">
+        <xmp>
+        <odp:Vote>
+          <!-- must -->
+          <odp:voteId>http://www.instance.example.com/41234</odp:voteId>
+          <odp:timeout>86400</odp:timeout>
+          <odp:instance>
+            <odp:identifier>http://www.newleader.opendatapub.eu</odp:identifier>
+            <odp:endpoint>http://www.newleader.opendatapub.eu/odp/api/</odp:endpoint>
+          </odp:instance>  
+          <!-- may -->
+          <odp:previousId></odp:previousId>
+        </odp:Vote>          
+        </xmp>
+      </pre>
+      <p>
+        When 100% of the votes are in, the instances send a VoteAcknowledge message to the new circle leader. The circle leader responds with a HTTP Status 200 if it came to the same conclusion as the instances, or a HTTP Status 403 if it didn't.
+      </p>
+      <pre class="example highlight xml">
+        <xmp>
+        <odp:VoteAcknowledge>
+          <!-- must -->
+          <odp:instance>
+            <odp:identifier>http://www.newleader.opendatapub.eu</odp:identifier>
+            <odp:endpoint>http://www.newleader.opendatapub.eu/odp/api/</odp:endpoint>
+          </odp:instance>  
+          <odp:status>win</odp:status>
+        </odp:VoteAcknowledge>          
+        </xmp>
+      </pre>
+      <p>
+        Either way the vote in this case is over and the instances would have to start a new vote. In the case of a timeout with less than 100% of the votes, the vote is canceled as well.
+        In the case of a tie, the voting process has to be repeated, but only the two instances from the tie are eligible to be voted for. 
+        The instances have to be able to identify, that a vote is a successor to a previous failed vote, which is why in such a case the instances MUST fill the previousId field of the vote for reference.
+      </p>
+      <img alt="normal voting process" src="figures/vote_normal.svg">
+    </section>
 
   <section>
       <h2 role="heading" aria-level="2" id="dataset-activities">Dataset Activities</h2>
