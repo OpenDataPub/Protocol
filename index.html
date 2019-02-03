@@ -16,6 +16,26 @@
       shortName: "jawerd"
     };
   </script>
+    <style>
+      thead {
+        background: #005A9C;
+        color: white;
+      }
+      thead th {
+        font-weight: normal;
+      }
+      table, td, th { border: 1px solid gray }
+      table { width: 120% ;}
+      td {
+        vertical-align: top;
+        padding: 5px;
+      }
+  .nanotabs > ul li { float:left; list-style:none; }
+  .nanotabs > ul li a { display:block; padding:4px 6px; margin-right: 3px; border-left: 1px solid #b9ab2d; border-right: 1px solid #b9ab2d; border-top: 1px solid #b9ab2d; border-collapse: collapse; background:#fcfaee; color:#b9ab2d; font-family: sans-serif;
+   text-decoration:none; }
+  .nanotabs > ul li a:hover { background:#FFFCE5; color:#550; }
+  .nanotabs > ul li a.selected { background:#555; color:#FFF; }
+    </style>
 </head>
 
 <body>
@@ -1577,7 +1597,7 @@
           <odp:identifier>http://www.newinstance.example.com</odp:identifier>
           <odp:endpoint>http://www.newinstance.example.com/odp/api/</odp:endpoint>
         </odp:instance>
-        <odp:timeout>86400</opd:timeout>
+        <odp:timeout>P1DT2H</opd:timeout>
       </odp:JoinRequest>          
       </xmp>
     </pre>
@@ -1692,7 +1712,8 @@
         To avoid re-inventing the wheel a method similar to the VoxPopuli protocol is chosen for the protocol.
       </p>
       <p>
-        When an instance wants to vote on a new circle leader, it sends the Vote message. The Vote message contains the instance attribute for the node, which the instance wants to be the next circle leader and a unique voteId as well as a timeout.
+        When an instance wants to vote on a new circle leader, it sends the Vote message. The vote can be either held for a new circle leader or for the removal of an instance from the circle of trust. This is determined by the voteOutcome property.
+        The Vote message contains the instance attribute for the node, which the instance wants to be the next circle leader and a unique voteId as well as a timeout.
         The message is being sent to all other instances in the circle. Upon receiving the message every instance has the time definiend in the timeout to send out its own Vote message to every other node, reference the id from the original message.
       </p>
       <pre class="example highlight xml">
@@ -1700,7 +1721,7 @@
         <odp:Vote>
           <!-- must -->
           <odp:voteId>http://www.instance.example.com/41234</odp:voteId>
-          <odp:timeout>86400</odp:timeout>
+          <odp:timeout>P1DT2H</odp:timeout>
           <odp:instance>
             <odp:identifier>http://www.newleader.opendatapub.eu</odp:identifier>
             <odp:endpoint>http://www.newleader.opendatapub.eu/odp/api/</odp:endpoint>
@@ -1711,7 +1732,8 @@
         </xmp>
       </pre>
       <p>
-        When 100% of the votes are in, the instances send a VoteAcknowledge message to the new circle leader. The circle leader responds with a HTTP Status 200 if it came to the same conclusion as the instances, or a HTTP Status 403 if it didn't.
+        When 100% of the votes are in, the instances send a VoteAcknowledge message to the new circle leader. The decisive property MUST reflect wheter it was a win or a tie. 
+        The circle leader responds with a HTTP Status 200 if it came to the same conclusion as the instances, or a HTTP Status 403 if it didn't.
       </p>
       <pre class="example highlight xml">
         <xmp>
@@ -1721,7 +1743,7 @@
             <odp:identifier>http://www.newleader.opendatapub.eu</odp:identifier>
             <odp:endpoint>http://www.newleader.opendatapub.eu/odp/api/</odp:endpoint>
           </odp:instance>  
-          <odp:status>win</odp:status>
+          <odp:decisive>true</odp:decisive>
         </odp:VoteAcknowledge>          
         </xmp>
       </pre>
@@ -1737,8 +1759,278 @@
       <h2 role="heading" aria-level="2" id="dataset-activities">Dataset Activities</h2>
       <p></p>
   </section>
+</section>
 
+  <section>
+    <h2 role="heading" aria-level="1" id="messages">Messages</h2>
+    <p></p>
+
+    <section id="JoinRequest">
+      <h2><dfn id="JoinRequest">JoinRequest</dfn></h2>
+      <p>The message has a set of properties, which include:</p>
+      <code>
+        <code><a href="#Instance">instance</a></code> |
+        <code><a href="#dfn-timeout">timeout</a></code>
+      </code>
+    </section> 
+    
+    <section id="JoinRequestAnswer">
+      <h2><dfn id="JoinRequestAnswer">JoinRequestAnswer</dfn></h2>
+      <p>The message has a set of properties, which include:</p>
+      <code>
+        <code><a href="#Instance">instance</a></code> |
+        <code><a href="#dfn-timeout">timeout</a></code> |
+        <code><a href="#dfn-isaccepted">isAccepted</a></code>
+      </code>
+    </section> 
+
+    <section id="Subscribe">
+      <h2><dfn id="Subscribe">Subscribe</dfn></h2>
+      <p>The message has a set of properties, which include:</p>
+      <code>
+        <code><a href="#Instance">instance</a></code>
+      </code>
+    </section> 
+
+    <section id="Unsubscribe">
+      <h2><dfn id="Unsubscribe">Unsubscribe</dfn></h2>
+      <p>The message has a set of properties, which include:</p>
+      <code>
+        <code><a href="#Instance">instance</a></code>
+      </code>
+    </section> 
+
+    <section id="Vote">
+      <h2><dfn id="Vote">Vote</dfn></h2>
+      <p>The message has a set of properties, which include:</p>
+      <code>
+        <code><a href="#dfn-voteid">voteid</a></code> |
+        <code><a href="#Instance">instance</a></code> |
+        <code><a href="#dfn-timeout">timeout</a></code> |
+        <code><a href="#dfn-previousid">previousId</a></code> |
+        <code><a href="#dfn-voteoutcome">voteOutcome</a></code> |
+      </code>
+      <p>The previousId property is optional and should be filled if there is a previous vote.</p>
+    </section>  
+
+    <section id="VoteAcknowledge">
+        <h2><dfn id="VoteAcknowledge">VoteAcknowledge</dfn></h2>
+        <p>The message has a set of properties, which include:</p>
+        <code>
+          <code><a href="#Instance">instance</a></code> |
+          <code><a href="#dfn-decisive">decisive</a></code> |
+        </code>
+      </section> 
   </section>
+
+  <section>
+    <h2 role="heading" aria-level="1" id="datatypes">Data Types</h2>
+    <p>This section describes OpenDataPub specific data types. There is no particular order to the list.</p>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 15%">Term</th>
+          <th colspan="2">Description</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+        <td rowspan="5"><dfn>voteId</dfn></td>
+        <td style="width: 10%">URI:</td>
+        <td><code>@odp:voteId</code></td>
+        <td rowspan="5">
+        <div id="exid-jsonld" style="display: block;">
+        <pre class="example highlight xml">
+            <xmp><odp:voteId>http://example.org/512463</odp:voteId></xmp>
+        </pre>
+        </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Notes:</td>
+          <td>
+            Provides the globally unique identifier for a vote.
+          </td>
+        </tr>
+        <tr>
+          <td>Domain:</td>
+          <td><code><a href="#Vote">Vote</a></code></td>
+        </tr>
+        <tr>
+          <td>Range:</td>
+          <td><code>anyURI</code></td>
+        </tr>
+        <tr>
+          <td>Functional:</td>
+          <td>True</td>
+        </tr>
+
+        <tr>
+        <td rowspan="5"><dfn>previousId</dfn></td>
+        <td style="width: 10%">URI:</td>
+        <td><code>@odp:previousId</code></td>
+        <td rowspan="5">
+        <div id="exid-jsonld" style="display: block;">
+        <pre class="example highlight xml">
+            <xmp><odp:previousId>http://example.org/512462</odp:previousId></xmp>
+        </pre>
+        </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Notes:</td>
+          <td>
+            Provides the globally unique identifier for the previous vote.
+          </td>
+        </tr>
+        <tr>
+          <td>Domain:</td>
+          <td><code><a href="#Vote">Vote</a></code></td>
+        </tr>
+        <tr>
+          <td>Range:</td>
+          <td><code>anyURI</code></td>
+        </tr>
+        <tr>
+          <td>Functional:</td>
+          <td>True</td>
+        </tr>
+
+        <tr>
+        <td rowspan="5"><dfn>voteOutcome</dfn></td>
+        <td style="width: 10%">URI:</td>
+        <td><code>@odp:voteOutcome</code></td>
+        <td rowspan="5">
+        <div id="exid-jsonld" style="display: block;">
+        <pre class="example highlight xml">
+            <xmp><odp:voteOutcome>0</odp:voteOutcome></xmp>
+        </pre>
+        </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Notes:</td>
+          <td>
+            Provides the switch to indicate for what outcome is vote is held for.
+          </td>
+        </tr>
+        <tr>
+          <td>Domain:</td>
+          <td><code><a href="#Vote">Vote</a></code></td>
+        </tr>
+        <tr>
+          <td>Range:</td>
+          <td>
+            <code>xsd:nonNegativeInteger</code>
+            0 - circle leader
+            1 - instance removal 
+          </td>
+        </tr>
+        <tr>
+          <td>Functional:</td>
+          <td>True</td>
+        </tr>
+
+        <tr>
+        <td rowspan="5"><dfn>decisive</dfn></td>
+        <td style="width: 10%">URI:</td>
+        <td><code>@odp:decisive</code></td>
+        <td rowspan="5">
+        <div id="exid-jsonld" style="display: block;">
+        <pre class="example highlight xml">
+            <xmp><odp:decisive>true</odp:decisive></xmp>
+        </pre>
+        </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Notes:</td>
+          <td>
+            Provides an indicator to show wheter the vote result was a win or a tie.
+          </td>
+        </tr>
+        <tr>
+          <td>Domain:</td>
+          <td><code><a href="#VoteAcknowledge">VoteAcknowledge</a></code></td>
+        </tr>
+        <tr>
+          <td>Range:</td>
+          <td><code>xsd:boolean</code></td>
+        </tr>
+        <tr>
+          <td>Functional:</td>
+          <td>True</td>
+        </tr>
+
+        <tr>
+        <td rowspan="5"><dfn>timeout</dfn></td>
+        <td style="width: 10%">URI:</td>
+        <td><code>@odp:timeout</code></td>
+        <td rowspan="5">
+        <div id="exid-jsonld" style="display: block;">
+        <pre class="example highlight xml">
+            <xmp><odp:timeout>P1DT2H</odp:timeout></xmp>
+        </pre>
+        </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Notes:</td>
+          <td>
+            Provides a timeout as a <code>xsd:duration</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>Domain:</td>
+          <td><code><a href="#Vote">Vote</a></code> | <code><a href="#JoinRequest">JoinRequest</a></code></td>
+        </tr>
+        <tr>
+          <td>Range:</td>
+          <td><code>xsd:duration</code></td>
+        </tr>
+        <tr>
+          <td>Functional:</td>
+          <td>True</td>
+        </tr>
+
+        <tr>
+        <td rowspan="5"><dfn>isAccepted</dfn></td>
+        <td style="width: 10%">URI:</td>
+        <td><code>@odp:isAccepted</code></td>
+        <td rowspan="5">
+        <div id="exid-jsonld" style="display: block;">
+        <pre class="example highlight xml">
+            <xmp><odp:isAccepted>true</odp:isAccepted></xmp>
+        </pre>
+        </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Notes:</td>
+          <td>
+            Provides a answer to the question wheter a JoinRequest is accepted.
+          </td>
+        </tr>
+        <tr>
+          <td>Domain:</td>
+          <td><code><a href="#JoinRequestAnswer">JoinRequestAnswer</a></code></td>
+        </tr>
+        <tr>
+          <td>Range:</td>
+          <td><code>xsd:boolean</code></td>
+        </tr>
+        <tr>
+          <td>Functional:</td>
+          <td>True</td>
+        </tr>
+      </tbody>
+      
+    </table>
+  </section>
+
+
 </body>
 
 </html>
