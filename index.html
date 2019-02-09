@@ -103,6 +103,15 @@
         <p>Range: dfs:Literal (1..1)</p>
     </dd>
 
+    <dt id="description-activity">activity</dt>
+    <dd>
+      A new field by OpenDataPub.
+        <code>Dataset</code></a>
+        <code>odp:activity</code>
+        <p>This property contains a numeric value, that shows wheter this is a creation, deletion or an update.</p>
+        <p>Range: xsd:nonNegativeInteger (1..1)</p>
+    </dd>
+
     <p>
       Dataset objects <em class="rfc2119" title="SHOULD">SHOULD</em> have the following properties:
     </p>
@@ -1757,7 +1766,12 @@
 
   <section>
       <h2 role="heading" aria-level="2" id="dataset-activities">Dataset Activities</h2>
-      <p></p>
+      <p>
+        Since the dataset is the central exchange datatype, there needs to be a way to change a once created dataset. OpenDatapub accomplishes that by using dataset activities.
+        The activity fields take the value of either 01, for creation, 02, for an update or 03 for deletion. In case of an creating the initial dataset is delivered with all avaible fields.
+        A dataset with a update activity 02 MUST only contain the changed fields and not the data that remained the same. This way the traffic is reduced and updates are easily identifiable. 
+        For a deletion only the dataset id and the activity SHOULD be provided.
+      </p>
   </section>
 </section>
 
@@ -1924,8 +1938,8 @@
           <td>Range:</td>
           <td>
             <code>xsd:nonNegativeInteger</code>
-            0 - circle leader
-            1 - instance removal 
+            <p>0 - circle leader</p>
+            <p>1 - instance removal </p>
           </td>
         </tr>
         <tr>
@@ -2020,6 +2034,42 @@
         <tr>
           <td>Range:</td>
           <td><code>xsd:boolean</code></td>
+        </tr>
+        <tr>
+          <td>Functional:</td>
+          <td>True</td>
+        </tr>
+
+        <tr>
+        <td rowspan="5"><dfn>activity</dfn></td>
+        <td style="width: 10%">URI:</td>
+        <td><code>@odp:activity</code></td>
+        <td rowspan="5">
+        <div id="exid-jsonld" style="display: block;">
+        <pre class="example highlight xml">
+            <xmp><odp:activity>01</odp:activity></xmp>
+        </pre>
+        </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Notes:</td>
+          <td>
+            Provides an indicator, wheter this is a dataset creation, deletion or an update. See chapter <a href="#dataset-activities">Dataset activities</a>.
+          </td>
+        </tr>
+        <tr>
+          <td>Domain:</td>
+          <td><code><a href="#Dataset">Dataset</a></code></td>
+        </tr>
+        <tr>
+          <td>Range:</td>
+          <td>
+            <code>xsd:nonNegativeInteger</code>
+            <p>01 - creation</p>
+            <p>02 - update</p>
+            <p>03 - deletion </p>
+          </td>
         </tr>
         <tr>
           <td>Functional:</td>
