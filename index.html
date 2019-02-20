@@ -1606,7 +1606,8 @@
     <h3 id="endpointcircleoftrust">CircleOfTrust</h3>
     <p>The CircleOfTrust is discovered through the info endpoint of an instance. It therefore MUST be located under the URL "[endpoint]/CircleOfTrust/". The circle of trust endpoint MUST output the CircleOfTrustCollection of this instance. The Circle of Trust is supposed to be public, so instances can discover other instances.</p>
     <p>The circle of trust understands three messages. There is a JoinRequest, JoinRequestAnswer und a Leave message. </p>
-    <p>For the circle of trust there are two options under which one can operate. The first being a circle of trust, that has a circle leader. This circle leader can decide whether to accept a join request or to deny it on its own without having to ask any other member.</p>
+    <p>For the circle of trust there are two options under which one can operate. The first being a circle of trust, that has a circle leader. 
+      This circle leader can decide whether to accept a join request or to deny it on its own without having to ask any other member.</p>
     <img alt="circle of trust join request with a circleleader" src="figures/cot_circleleader.svg">
     <p>In this scenario the new participant, who wants to join the circle sends a Join request to any member of the circle.</p>
     <pre class="example highlight xml">
@@ -1617,11 +1618,21 @@
           <odp:identifier>http://www.newinstance.example.com</odp:identifier>
           <odp:endpoint>http://www.newinstance.example.com/odp/api/</odp:endpoint>
         </odp:instance>
+        <odp:members>
+          <odp:instance>
+            <odp:identifier>http://www.newinstance.beispiel.de</odp:identifier>
+            <odp:endpoint>http://www.newinstance.beispiel.de/odp/api/</odp:endpoint>
+          </odp:instance>
+          <odp:instance>
+            <odp:identifier>http://www.newinstance.voorbeeld.nl</odp:identifier>
+            <odp:endpoint>http://www.newinstance.voorbeeld.nl/odp/api/</odp:endpoint>
+          </odp:instance>
+        </odp:members>
         <odp:timeout>P1DT2H</opd:timeout>
       </odp:JoinRequest>          
       </xmp>
     </pre>
-    <p>This exact request MUST then send by the instance already in the circle to the CircleOfTrust endpoint of the circle leader. The circle leader can identify this as a new Request by comparing his CircleOfTrustCollection to the request. 
+    <p>This exact request MUST then send by the instance already in the circle to the CircleOfTrust endpoint of the circle leader. The circle leader can identify this as a new request by comparing his CircleOfTrustCollection to the request. 
       After deciding on whether to accept or deny the quest the circle leader sends its response, within the time limit set by the sender of the request. 
       If the time of the timeout has run out, the circle leader MUST send a response with a negative isAccepted property and thereby denying the access to the circle of trust.
     </p>
@@ -1629,11 +1640,22 @@
       <xmp>
       <odp:JoinRequestAnswer>
         <!-- must -->
-        <odp:JoinRequest></odp:JoinRequest>
+        <odp:JoinRequest>
           <odp:instance>
             <odp:identifier>http://www.newinstance.example.com</odp:identifier>
             <odp:endpoint>http://www.newinstance.example.com/odp/api/</odp:endpoint>
           </odp:instance>
+          <odp:members>
+            <odp:instance>
+              <odp:identifier>http://www.newinstance.beispiel.de</odp:identifier>
+              <odp:endpoint>http://www.newinstance.beispiel.de/odp/api/</odp:endpoint>
+            </odp:instance>
+            <odp:instance>
+              <odp:identifier>http://www.newinstance.voorbeeld.nl</odp:identifier>
+              <odp:endpoint>http://www.newinstance.voorbeeld.nl/odp/api/</odp:endpoint>
+            </odp:instance>
+          </odp:members>
+          <odp:timeout>P1DT2H</opd:timeout>
         </odp:JoinRequest>  
         <odp:isAccepted>true</odp:isAccepted>          
       </odp:JoinRequestAnswer>          
@@ -1656,7 +1678,8 @@
       If the instance acting as a circle leader is the only instance in the circle, it can answer the request on its own.
     </p>
     <img alt="a visualisation of the messageflow in a circle of trust join request without a circleleader" src="figures/cot_no_circleleader_vis.svg">
-    <p>When an instance wants to leave a circle of trust by its own, he MUST send a <a href="#Leave">Leave</a> Message to every member of the circle containing itself as the instance in the message.</p>   
+    <p>When an instance wants to leave a circle of trust by its own, he MUST send a <a href="#Leave">Leave</a> Message to every member of the circle containing itself as the instance in the message. 
+      The members attribute must be filled with a collecion of all members of the circle you want to leave</p>   
   </section>
 
     <section>
@@ -1676,7 +1699,7 @@
               <odp:endpoint>http://www.govdata.de/odp/api/</odp:endpoint>
             </odp:instance>
         </odp:members>          
-      </odp:JoinRequestAnswer>          
+      </odp:SubscriptionCollection>          
       </xmp>
     </pre>
     <p>
@@ -1798,6 +1821,7 @@
       <p>The message has a set of properties, which include:</p>
       <code>
         <code><a href="#Instance">instance</a></code> |
+        <code><a href="#cot">members</a></code> |
         <code><a href="#dfn-timeout">timeout</a></code>
       </code>
     </section> 
@@ -1806,8 +1830,7 @@
       <h2><dfn id="JoinRequestAnswer">JoinRequestAnswer</dfn></h2>
       <p>The message has a set of properties, which include:</p>
       <code>
-        <code><a href="#Instance">instance</a></code> |
-        <code><a href="#dfn-timeout">timeout</a></code> |
+        <code><a href="#JoinRequest">JoinRequest</a></code> |
         <code><a href="#dfn-isaccepted">isAccepted</a></code>
       </code>
     </section> 
@@ -1816,7 +1839,8 @@
       <h2><dfn id="Leave">Leave</dfn></h2>
       <p>The message has a set of properties, which include:</p>
       <code>
-        <code><a href="#Instance">instance</a></code>
+        <code><a href="#Instance">instance</a></code> |
+        <code><a href="#cot">members</a></code>
       </code>
     </section> 
 
