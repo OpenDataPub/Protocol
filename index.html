@@ -1650,7 +1650,7 @@
     <img alt="circle of trust join request without a circleleader" src="figures/cot_no_circleleader.svg">
     <p>
       The JoinRequest is identical, but when the instance in the circle accepts the request from the new participant the instance, which is already a member, takes over the role of the circle leader for this process.
-      But instead of deciding on the outcome itself, the instance MUST forward the request to every other instance in the circle. The instances now MUST reply wihtin the set timeout. 
+      But instead of deciding on the outcome itself, the instance MUST forward the request to every other instance in the circle. Additionally the instance MUST send it's own JoinRequestAnswer to each instance. The instances now MUST reply wihtin the set timeout. 
       When there is no decision being made within the timeout, the instance MUST send a response with a negative isAccepted property.
       The instance which acts as the circle leader MUST collect the JoinRequestAnswer message until all messages arrive. The vote is then evaluated by the instance and the answer, in form of a JoinRequestAnswer, MUST then be send to the new participant.
       If the instance acting as a circle leader is the only instance in the circle, it can answer the request on its own.
