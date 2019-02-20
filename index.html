@@ -1656,7 +1656,8 @@
       If the instance acting as a circle leader is the only instance in the circle, it can answer the request on its own.
     </p>
     <img alt="a visualisation of the messageflow in a circle of trust join request without a circleleader" src="figures/cot_no_circleleader_vis.svg">
-    </section>
+    <p>When an instance wants to leave a circle of trust by its own, he MUST send a <a href="#Leave">Leave</a> Message to every member of the circle containing itself as the instance in the message.</p>   
+  </section>
 
     <section>
     <h3 id="endpointsubscription">Subscription</h3>
@@ -1808,6 +1809,14 @@
         <code><a href="#Instance">instance</a></code> |
         <code><a href="#dfn-timeout">timeout</a></code> |
         <code><a href="#dfn-isaccepted">isAccepted</a></code>
+      </code>
+    </section> 
+
+    <section id="Leave">
+      <h2><dfn id="Leave">Leave</dfn></h2>
+      <p>The message has a set of properties, which include:</p>
+      <code>
+        <code><a href="#Instance">instance</a></code>
       </code>
     </section> 
 
