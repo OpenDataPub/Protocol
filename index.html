@@ -1735,6 +1735,7 @@
         When an instance wants to vote on a new circle leader, it sends the Vote message. The vote can be either held for a new circle leader or for the removal of an instance from the circle of trust. This is determined by the voteOutcome property.
         The Vote message contains the instance attribute for the node, which the instance wants to be the next circle leader and a unique voteId as well as a timeout.
         The message is being sent to all other instances in the circle. Upon receiving the message every instance has the time definiend in the timeout to send out its own Vote message to every other node, reference the id from the original message.
+        For the case of an instance removal, which the instance wants to vote against, the instance attribute MUST be left empty. 
       </p>
       <pre class="example highlight xml">
         <xmp>
@@ -1746,6 +1747,7 @@
             <odp:identifier>http://www.newleader.opendatapub.eu</odp:identifier>
             <odp:endpoint>http://www.newleader.opendatapub.eu/odp/api/</odp:endpoint>
           </odp:instance>  
+          <odp:voteOutcome>0</odp:voteOutcome>
           <!-- may -->
           <odp:previousId></odp:previousId>
         </odp:Vote>          
