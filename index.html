@@ -77,7 +77,6 @@
     <h3 role="heading" aria-level="2" id="dataset">Dataset</h3>
     <p>Datasets are a central component of any Open Data Platform. Datasets
       provide context to the actual data, which they carry as an Resource.
-      (ActivityPub: Object)
     </p>
 
     <p>
@@ -470,7 +469,6 @@
     <section id="Catalog">
     <h3 role="heading" aria-level="2" id="catalog">Catalog</h3>
     <p>A Catalog is an object to group different datasets.
-      (ActivityPub: Object)
     </p>
     
     <p>
@@ -685,7 +683,6 @@
     <section id="CatalogRecord">
       <h3 role="heading" aria-level="2" id="catalogRecord">Catalog Record</h3>
       <p>This class is optional and not all catalogs will use it. It exists for catalogs where a distinction is made between metadata about a dataset and metadata about the dataset's entry in the catalog. 
-        (ActivityPub: Object)
       </p>
 
       <p>
@@ -814,7 +811,6 @@
     <section id="Distribution">
       <h3 role="heading" aria-level="2" id="distribution">Distribution</h3>
       <p>Represents a specific available form of a dataset. Each dataset might be available in different forms, these forms might represent different formats of the dataset or different endpoints. Examples of distributions include a downloadable CSV file, an API or an RSS feed.
-        (ActivityPub: )
       </p>
 
       <p>
@@ -1026,7 +1022,6 @@
     <section id="Agent">
       <h3 role="heading" aria-level="2" id="agent">Agent</h3>
       <p>This class describes an Agent that publishes Data. It <em class="rfc2119" title="MAY">MAY</em>  have all fields provided by the <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a> and <a href="http://xmlns.com/foaf/spec/">foaf:Organization</a> Vocabulary Specification.
-        (ActivityPub: )
       </p>
 
       <p>
@@ -1087,7 +1082,6 @@
       <p>The knowledge organization system (KOS) used to represent themes/categories of datasets in the catalog. 
         It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="https://www.w3.org/TR/skos-reference/#schemes">skos:ConceptScheme</a> Vocabulary Specification. 
         The Category Scheme is being used in the Catalog Themes and Dataset Theme.
-        (ActivityPub: )
       </p>
 
       <p>
@@ -1138,7 +1132,6 @@
         It is recommended to use either skos:inScheme or skos:topConceptOf on every skos:Concept used to classify datasets to link it to the concept scheme it belongs to. This concept scheme is typically associated with the catalog using dcat:themeTaxonomy.
         It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="https://www.w3.org/TR/skos-reference/#concepts">skos:ConceptScheme</a> Vocabulary Specification. 
         The Category is being used in the Catalog Themes and Dataset Theme.
-        (ActivityPub: )
       </p>
 
       <p>
@@ -1197,7 +1190,6 @@
       <h3 role="heading" aria-level="2" id="checksum">Checksum</h3>
       <p>A Checksum is value that allows the contents of a file to be authenticated. Even small changes to the content of the file will change its checksum. This class allows the results of a variety of checksum and cryptographic message digest algorithms to be represented.
         It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="https://spdx.org/rdf/terms/#Checksum">spdx:Checksum</a> Vocabulary Specification. 
-        (ActivityPub: )
       </p>
 
       <p>
@@ -1239,7 +1231,6 @@
     <section id="Identifier">
       <h3 role="heading" aria-level="2" id="identifier">Identifier</h3>
       <p>This is based on the [[UN-CEFACT-V3-1]] Identifier class. The type of the class is the adms:identifier.
-        (ActivityPub: )
       </p>
 
       <p>
@@ -1270,7 +1261,6 @@
       <h3 role="heading" aria-level="2" id="Licence">Licence</h3>
       <p>A legal document giving official permission to do something with a Resource.
         It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="http://purl.org/dc/terms/LicenseDocument">dct:LicenseDocument</a> Dublin Core Metadata Initiative.
-        (ActivityPub: )
       </p>
 
       <p>
@@ -1302,7 +1292,6 @@
         <h3 role="heading" aria-level="2" id="PeriodOfTime">Period Of Time</h3>
         <p>The Period of Time is a range of dates.
           It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="http://purl.org/dc/terms/PeriodOfTime">dct:PeriodOfTime</a> Dublin Core Metadata Initiative.
-          (ActivityPub: )
         </p>
   
         <p>
@@ -1540,11 +1529,11 @@
     <h2 role="heading" aria-level="1" id="communication">Communication</h2>
     <p>
     In contrast to [[ActivityPub]] OpenDataPub uses a server-to-server only approach. 
-    Whereas [[ActivityPub]] has actor inboxes, these structures are server inboxes in Open DataDataPub.
+    Whereas [[ActivityPub]] has actor inboxes, these structures are server inboxes in OpenDataPub.
     </p>
     <p>
     Servers communicate with other servers and propagate information across the open data network by posting datasets to server inbox endpoints. 
-    The server inbox endpoints are determinded by a circle of trust list.
+    The server inbox endpoints are determinded by a circle of trust list or subscription.
     The dataset is the central class, to which all other classes relate, therefore only the datasets MUST be propagated across the network. 
     </p>
     <p>
