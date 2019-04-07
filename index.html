@@ -52,7 +52,7 @@
   <section id='abstract'>
     <p>
       The OpenDataPub protocol is a decentralised networking protocol for
-      open data platforms based upon the <a href="https://w3c.github.io/activitypub/">ActivityPub</a> protcol in
+      open data platforms based upon the <a href="https://w3c.github.io/activitypub/">ActivityPub</a> protocol in
       combination with the <a href="https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe">DCAT-AP</a>
       open data standard of the EU.
     </p>
@@ -75,8 +75,8 @@
 
     <section id="Dataset">
     <h3 role="heading" aria-level="2" id="dataset">Dataset</h3>
-    <p>Datasets are a central component of any Open Data Platform. Datasets
-      provide context to the actual data, which they carry as an Resource.
+    <p>Datasets are a central component of any Open Data platform. Datasets
+      provide context to the actual data, which they carry as an ressource.
     </p>
 
     <p>
@@ -1021,7 +1021,7 @@
 
     <section id="Agent">
       <h3 role="heading" aria-level="2" id="agent">Agent</h3>
-      <p>This class describes an Agent that publishes Data. It <em class="rfc2119" title="MAY">MAY</em>  have all fields provided by the <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a> and <a href="http://xmlns.com/foaf/spec/">foaf:Organization</a> Vocabulary Specification.
+      <p>This class describes an Agent that publishes data. It <em class="rfc2119" title="MAY">MAY</em>  have all fields provided by the <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a> and <a href="http://xmlns.com/foaf/spec/">foaf:Organization</a> Vocabulary Specification.
       </p>
 
       <p>
@@ -1079,7 +1079,7 @@
 
     <section id="CategoryScheme">
       <h3 role="heading" aria-level="2" id="CategoryScheme">Category Scheme</h3>
-      <p>The knowledge organization system (KOS) used to represent themes/categories of datasets in the catalog. 
+      <p>The knowledge organization system (KOS) is used to represent themes/categories of datasets in the catalog. 
         It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="https://www.w3.org/TR/skos-reference/#schemes">skos:ConceptScheme</a> Vocabulary Specification. 
         The Category Scheme is being used in the Catalog Themes and Dataset Theme.
       </p>
@@ -1129,7 +1129,7 @@
     <section id="Category">
       <h3 role="heading" aria-level="2" id="category">Category</h3>
       <p>A category or a theme used to describe datasets in the catalog.
-        It is recommended to use either skos:inScheme or skos:topConceptOf on every skos:Concept used to classify datasets to link it to the concept scheme it belongs to. This concept scheme is typically associated with the catalog using dcat:themeTaxonomy.
+        It is recommended to use either skos:inScheme or skos:topConceptOf on every skos:Concept to classify datasets and to link it to the concept scheme it belongs to. This concept scheme is typically associated with the catalog using dcat:themeTaxonomy.
         It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="https://www.w3.org/TR/skos-reference/#concepts">skos:ConceptScheme</a> Vocabulary Specification. 
         The Category is being used in the Catalog Themes and Dataset Theme.
       </p>
@@ -1188,7 +1188,7 @@
 
     <section id="Checksum">
       <h3 role="heading" aria-level="2" id="checksum">Checksum</h3>
-      <p>A Checksum is value that allows the contents of a file to be authenticated. Even small changes to the content of the file will change its checksum. This class allows the results of a variety of checksum and cryptographic message digest algorithms to be represented.
+      <p>A Checksum is a value that allows the contents of a file to be authenticated. Even small changes to the content of the file will change its checksum. This class allows the results of a variety of checksum and cryptographic message digest algorithms to be represented.
         It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="https://spdx.org/rdf/terms/#Checksum">spdx:Checksum</a> Vocabulary Specification. 
       </p>
 
@@ -1333,7 +1333,7 @@
 
       <section id="Instance">
         <h3 role="heading" aria-level="2" id="Instance">Instance</h3>
-        <p>The Instance is a description of a server in the OpenDataPub network.
+        <p>The instance is a description of a server in the OpenDataPub network.
         </p>
   
         <p>
@@ -1393,9 +1393,8 @@
           datasets.
         </p>
         <p>
-          The outbox accepts HTTP POST requests, with behaviour described in
-          <a href="#communication">communication
-            Interactions</a>.
+          The outbox accepts HTTP POST requests, with behaviour described in the
+          <a href="#communication">communication interactions</a>.
         </p>
       </section>
 
@@ -1418,14 +1417,14 @@
         <p>
           The server MUST perform de-duplication of datasets returned by
           the inbox. Duplication can occur if an dataset is published by a member of the circle of trust and by a server the server is subscribed to.
-          Such deduplication MUST be performed by comparing the
+          Such de-duplication MUST be performed by comparing the
           <code>id</code> of the activities and dropping any activities
           already seen.
         </p>
 
         <p>
-          The inboxes of actors on federated servers accepts HTTP POST requests,
-          with behaviour described in <a href="#communication">Delivery</a>.
+          The inboxes of instances on federated servers accepts HTTP POST requests,
+          with behaviour described in the <a href="#communication">communication interactions</a>.
         </p>
     </section>
 
@@ -1438,7 +1437,7 @@
       </p>        
 
       <h3 role="heading" aria-level="2" id="CircleOfTrustCollection">CircleOfTrustCollection</h3>
-      <p>The CircleOfTrustCollection is a collection of Circle of Trust Entries.
+      <p>The CircleOfTrustCollection is a collection of Circle of Trust entries.
       </p>
 
       <p>
@@ -1449,7 +1448,7 @@
       <dd>
         <code>CircleOfTrustCollection</code></a>
         <code>odp:members</code>
-        <p>This contains a list of members of the circle of trust. There must be at least one entry, which would be the server itself.</p>
+        <p>This contains a list of members of the circle of trust. There must be at least one entry, which would be the instance itself.</p>
         <p>Range: odp:Instance (1..n)</p>
       </dd>    
 
@@ -1490,7 +1489,7 @@
 
       <p>
         Every server MUST have a subscription collection. This is a list of every server who has subscribed to the datasets of a server. 
-        The subscription collection MUST be an SubscriptionCollection.
+        The subscription collection MUST be a SubscriptionCollection.
       </p>        
 
       <h3 role="heading" aria-level="2" id="SubscriptionCollection">SubscriptionCollection</h3>
@@ -1504,7 +1503,7 @@
       <dd>
         <code>SubscriptionCollection</code></a>
         <code>odp:members</code>
-        <p>This contains all members that are subscribed to datasets of this server.</p>
+        <p>This contains all members that are subscribed to datasets of this instance.</p>
         <p>Range: odp:Instance (0..n)</p>
       </dd> 
     </section>
@@ -1528,35 +1527,35 @@
   <section id="communication">
     <h2 role="heading" aria-level="1" id="communication">Communication</h2>
     <p>
-    In contrast to [[ActivityPub]] OpenDataPub uses a server-to-server only approach. 
-    Whereas [[ActivityPub]] has actor inboxes, these structures are server inboxes in OpenDataPub.
+    In contrast to [[ActivityPub]] OpenDataPub uses a instance-to-instance only approach. 
+    Whereas [[ActivityPub]] has actor inboxes, these structures are instance inboxes in OpenDataPub.
     </p>
     <p>
-    Servers communicate with other servers and propagate information across the open data network by posting datasets to server inbox endpoints. 
-    The server inbox endpoints are determinded by a circle of trust list or subscription.
+    Instances communicate with other instances and propagate information across the open data network by posting datasets to instance's inbox endpoints. 
+    The instance inbox endpoints are determinded by a circle of trust list or subscription.
     The dataset is the central class, to which all other classes relate, therefore only the datasets MUST be propagated across the network. 
     </p>
     <p>
-    In order to propagate updates throughout the open data network, datasets are sent to all recipients in a server's circle of trust and subscription collection.
-    The circle of trust is a closed circle in which each member trust the datasets from all other members. The servers MUST therefore store the datasets, so they can be found.
+    In order to propagate updates throughout the open data network, datasets are sent to all recipients in a instance's circle of trust and subscription collection.
+    The circle of trust is a closed circle in which each member trust the datasets from all other members. The instance MUST therefore store the datasets locally, so they can be found.
     In contrast to the circle of trust, the SubscribtionCollection is a more loose association. 
-    Server B can request to be added to server A's SubscribtionCollection and will then be delivered with the updates regarding all datasets. 
-    However, a subscriber in the SubscribtionCollection, like server B, is not trusted to produce legitimate datasets and is therefore not allowed to write back in A's inbox.
+    Instance B can request to be added to instance A's SubscribtionCollection and will then be delivered with the updates regarding all datasets. 
+    However, a subscriber in the SubscribtionCollection, like instance B, is not trusted to produce legitimate datasets and is therefore not allowed to post back to A's inbox.
     The result is a one-way delivery of datasets.
     </p>
 
     Delivery is usually triggered by, for example:
     <ul>
         <li>
-          an dataset being created in an server's <a href="#outbox">outbox</a>
+          a dataset being created in an instance's <a href="#outbox">outbox</a>
           with everyone in the circle of trust as the recipient.
         </li>
         <li>
-          an dataset being modified in an server's <a href="#outbox">outbox</a>
+          a dataset being modified in an instance's <a href="#outbox">outbox</a>
           with everyone in the circle of trust as the recipient.
         </li>
         <li>
-          an dataset being deleted in an server's <a href="#outbox">outbox</a>
+          a dataset being deleted in an instance's <a href="#outbox">outbox</a>
           with everyone in the circle of trust as the recipient.
         </li>
     </ul>
@@ -1564,22 +1563,22 @@
   <section id="endpoints">
     <h2 role="heading" aria-level="2" id="endpoints">Endpoints</h2>
     <p>
-      Every instance has five endpoints that are needed for the communication. The Endpoint SHOULD be reachable by a central URL like "[baseURL]/api/", but MAY be located anywhere else. 
+      Every instance has five endpoints that are needed for the communication. The endpoints SHOULD be reachable by a central URL like "[baseURL]/api/", but MAY be located anywhere else. 
     </p>
     
     <section>
         <h3 id="endpointinfo">Info</h3>
         <p>The info endpoint MUST output the <code>Instance</code> datatype filled with the information about the instance. With this information the endpoints can be queried and supply additional information in case of an extension.</p>
-        <p>The info endpoint is central, because all other endpoints are located nested under his URL. It therefore definies the [endpoint] variable used in this chapter.</p>
+        <p>The info endpoint is central, because all other endpoints are located nested under his URL. It therefore defines the [endpoint] variable used in this chapter.</p>
         </section>
 
     <section>
         <h3 id="endpointoutbox">Outbox</h3>
         <p>The outbox is discovered through the info endpoint of an instance. It therefore MUST be located under the URL "[endpoint]/outbox/". The outbox MUST be an <code>OrderedCollection</code>.
-          The outbox MAY contain other objects than datasets, but will only deliver them based on the criteria defined in <a href="communication">Communication</a>.</p>
+          The outbox MAY contain other objects than datasets, but will only deliver them based on the criteria defined in <a href="#communication">communication</a>.</p>
         <p>When the contents of the outbox are up to delivery, the instance MUST determine the recipients of the objects. 
-          Datasets MUST be delivered to all instance in the <code>CircleOfTrustCollection</code> as well as the instances in the <code>SubscriptionCollection</code>.
-          The instance MUST send them via POST to the inboxes of the instances, which can be derived from their <a href="endpointinfo">Info</a> endpoints.
+          Datasets MUST be delivered to all instances in the <code>CircleOfTrustCollection</code> as well as the instances in the <code>SubscriptionCollection</code>.
+          The instance MUST send them via POST to the inboxes of the instances, which can be derived from their <a href="#endpointinfo">Info</a> endpoints.
         </p>
     </section>  
 
@@ -1622,7 +1621,7 @@
       </xmp>
     </pre>
     <p>This exact request MUST then send by the instance already in the circle to the CircleOfTrust endpoint of the circle leader. The circle leader can identify this as a new request by comparing his CircleOfTrustCollection to the request. 
-      After deciding on whether to accept or deny the quest the circle leader sends its response, within the time limit set by the sender of the request. 
+      After deciding on whether to accept or deny the quest the circle leader sends its response, within the timelimit set by the sender of the request. 
       If the time of the timeout has run out, the circle leader MUST send a response with a negative isAccepted property and thereby denying the access to the circle of trust.
     </p>
     <pre class="example highlight xml">
@@ -1656,19 +1655,19 @@
       If the answer was positive the other instances MUST add the newly accepted instance to their CircleOfTrustCollection.
     </p>
     <p>
-      If there is no circle leader, the request has a longer way to g before it can be definitly answered.
+      If there is no circle leader, the request has a longer way to go before it can be definitly answered.
     </p>
     <img alt="circle of trust join request without a circleleader" src="figures/cot_no_circleleader.svg">
     <p>
       The JoinRequest is identical, but when the instance in the circle accepts the request from the new participant the instance, which is already a member, takes over the role of the circle leader for this process.
-      But instead of deciding on the outcome itself, the instance MUST forward the request to every other instance in the circle. Additionally the instance MUST send it's own JoinRequestAnswer to each instance. The instances now MUST reply wihtin the set timeout. 
+      But instead of deciding on the outcome itself, the instance MUST forward the request to every other instance in the circle. Additionally the instance MUST send its own JoinRequestAnswer to each instance. The instances now MUST reply within the set timeout. 
       When there is no decision being made within the timeout, the instance MUST send a response with a negative isAccepted property.
-      The instance which acts as the circle leader MUST collect the JoinRequestAnswer message until all messages arrive. The vote is then evaluated by the instance and the answer, in form of a JoinRequestAnswer, MUST then be send to the new participant.
+      The instance which acts as the circle leader MUST collect the JoinRequestAnswer message until all messages arrive. The vote is then evaluated by the instance and the answer, in the shape of a JoinRequestAnswer, MUST then be send to the new participant.
       If the instance acting as a circle leader is the only instance in the circle, it can answer the request on its own.
     </p>
     <img alt="a visualisation of the messageflow in a circle of trust join request without a circleleader" src="figures/cot_no_circleleader_vis.svg">
-    <p>When an instance wants to leave a circle of trust by its own, he MUST send a <a href="#Leave">Leave</a> Message to every member of the circle containing itself as the instance in the message. 
-      The members attribute must be filled with a collecion of all members of the circle you want to leave</p>   
+    <p>When an instance wants to leave a circle of trust by its own, it MUST send a <a href="#Leave">Leave</a> Message to every member of the circle containing itself as the instance in the message. 
+      The members attribute must be filled with a collection of all members of the circle it wants to leave.</p>   
   </section>
 
     <section>
@@ -1692,7 +1691,7 @@
       </xmp>
     </pre>
     <p>
-      To get the updates of an instance any instance can send a Subscribe message.
+      To get the updates of an instance, any instance can send a Subscribe message.
     </p>
     <pre class="example highlight xml">
         <xmp>
@@ -1747,7 +1746,7 @@
       <p>
         When an instance wants to vote on a new circle leader, it sends the Vote message. The vote can be either held for a new circle leader or for the removal of an instance from the circle of trust. This is determined by the voteOutcome property.
         The Vote message contains the instance attribute for the node, which the instance wants to be the next circle leader and a unique voteId as well as a timeout.
-        The message is being sent to all other instances in the circle. Upon receiving the message every instance has the time definiend in the timeout to send out its own Vote message to every other node, reference the id from the original message.
+        The message is being sent to all other instances in the circle. Upon receiving the message every instance has the time defined in the timeout to send out its own Vote message to every other node, referencing the id from the original message.
         For the case of an instance removal, which the instance wants to vote against, the instance attribute MUST be left empty. 
       </p>
       <pre class="example highlight xml">
@@ -1793,8 +1792,8 @@
   <section>
       <h2 role="heading" aria-level="2" id="dataset-activities">Dataset Activities</h2>
       <p>
-        Since the dataset is the central exchange datatype, there needs to be a way to change a once created dataset. OpenDatapub accomplishes that by using dataset activities.
-        The activity fields take the value of either 01, for creation, 02, for an update or 03 for deletion. In case of an creating the initial dataset is delivered with all avaible fields.
+        Since the dataset is the central exchange datatype, there needs to be a way to change a once created dataset. OpenDataPub accomplishes that by using dataset activities.
+        The activity fields take the value of either 01, for creation, 02, for an update or 03 for deletion. In case of an creation the initial dataset is delivered with all available fields.
         A dataset with a update activity 02 MUST only contain the changed fields and not the data that remained the same. This way the traffic is reduced and updates are easily identifiable. 
         For a deletion only the dataset id and the activity SHOULD be provided.
       </p>
@@ -2139,7 +2138,7 @@
         <p>
           Spam is a problem in any network, perhaps especially so in federated networks.
           While no specific mechanism for combating spam is provided in OpenDataPub, it is recommended that servers filter incoming content
-          both by local untrusted users and any remote users through some sort of spam filter.
+          both by untrusted instances and any remote instance through some sort of spam filter.
         </p>
     </section>
     <section id="security-federation-dos">
