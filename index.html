@@ -1333,7 +1333,7 @@
 
       <section id="Instance">
         <h3 role="heading" aria-level="2" id="Instance">Instance</h3>
-        <p>The instance is a description of a server in the OpenDataPub network.
+        <p>The instance is a description of a instance in the OpenDataPub network.
         </p>
   
         <p>
@@ -1382,13 +1382,13 @@
         <h2 role="heading" aria-level="2">Outbox</h2>
         <p>
           The outbox is discovered through the <code>outbox</code>
-          property of a <a href="#endpointinfo">server's info endpoint.</a>
+          property of a <a href="#endpointinfo">instance's info endpoint.</a>
           The <code>outbox</code> MUST be an
           <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-orderedcollection">
             <code>OrderedCollection</code></a>.
         </p>
         <p>
-          The outbox stream contains datasets the server has
+          The outbox stream contains datasets the instance has
           published, subject to the ability of the requestor to retrieve the
           datasets.
         </p>
@@ -1403,7 +1403,7 @@
 
         <p>
           The inbox is discovered through the <code>inbox</code>
-          property of a <a href="#endpointinfo">server's info endpoint</a>.
+          property of a <a href="#endpointinfo">instance's info endpoint</a>.
           The <code>inbox</code> MUST be an
           <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-orderedcollection">
             <code>OrderedCollection</code></a>.
@@ -1411,19 +1411,19 @@
 
         <p>
           The inbox stream contains all datasets received by the
-          server.
+          instance.
         </p>
 
         <p>
-          The server MUST perform de-duplication of datasets returned by
-          the inbox. Duplication can occur if an dataset is published by a member of the circle of trust and by a server the server is subscribed to.
+          The instance MUST perform de-duplication of datasets returned by
+          the inbox. Duplication can occur if an dataset is published by a member of the circle of trust and by a instance the instance is subscribed to.
           Such de-duplication MUST be performed by comparing the
           <code>id</code> of the activities and dropping any activities
           already seen.
         </p>
 
         <p>
-          The inboxes of instances on federated servers accepts HTTP POST requests,
+          The inboxes of instances on federated instances accept HTTP POST requests,
           with behaviour described in the <a href="#communication">communication interactions</a>.
         </p>
     </section>
@@ -1432,7 +1432,7 @@
       <h2 role="heading" aria-level="2">Circle of Trust</h2>
 
       <p>
-        Every server MUST have a circle of trust collection. This is a list of every server who this server trusts to accept datasets from. 
+        Every instance MUST have a circle of trust collection. This is a list of every instance who this instance trusts to accept datasets from. 
         The circle of trust collection MUST be an CircleOfTrustCollection.
       </p>        
 
@@ -1488,7 +1488,7 @@
       <h2 role="heading" aria-level="2">Subscription Collection</h2>
 
       <p>
-        Every server MUST have a subscription collection. This is a list of every server who has subscribed to the datasets of a server. 
+        Every instance MUST have a subscription collection. This is a list of every instance who has subscribed to the datasets of a instance. 
         The subscription collection MUST be a SubscriptionCollection.
       </p>        
 
@@ -2137,7 +2137,7 @@
         <h2>Spam</h2>
         <p>
           Spam is a problem in any network, perhaps especially so in federated networks.
-          While no specific mechanism for combating spam is provided in OpenDataPub, it is recommended that servers filter incoming content
+          While no specific mechanism for combating spam is provided in OpenDataPub, it is recommended that instances filter incoming content
           both by untrusted instances and any remote instance through some sort of spam filter.
         </p>
     </section>
@@ -2147,7 +2147,7 @@
             Instances should implement protections against denial-of-service attacks from other, federated instances.
             This can be done using, for example, some kind of ratelimiting mechanism.
             Instances should be especially careful to implement this protection around activities that involve side effects.
-            Instances SHOULD also take care not to overload servers with submissions, for example by using an exponential backoff strategy.
+            Instances SHOULD also take care not to overload instances with submissions, for example by using an exponential backoff strategy.
           </p>
       </section>
 
