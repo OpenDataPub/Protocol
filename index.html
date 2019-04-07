@@ -76,7 +76,7 @@
     <section id="Dataset">
     <h3 role="heading" aria-level="2" id="dataset">Dataset</h3>
     <p>Datasets are a central component of any Open Data platform. Datasets
-      provide context to the actual data, which they carry as an ressource.
+      provide context to the actual data, which they carry as a resource.
     </p>
 
     <p>
@@ -682,7 +682,7 @@
 
     <section id="CatalogRecord">
       <h3 role="heading" aria-level="2" id="catalogRecord">Catalog Record</h3>
-      <p>This class is optional and not all catalogs will use it. It exists for catalogs where a distinction is made between metadata about a dataset and metadata about the dataset's entry in the catalog. 
+      <p>The class of the Catalog Record is optional and not all catalogs will use it. It exists for catalogs where a distinction is made between metadata about a dataset and metadata about the dataset's entry in the catalog. 
       </p>
 
       <p>
@@ -810,7 +810,7 @@
 
     <section id="Distribution">
       <h3 role="heading" aria-level="2" id="distribution">Distribution</h3>
-      <p>Represents a specific available form of a dataset. Each dataset might be available in different forms, these forms might represent different formats of the dataset or different endpoints. Examples of distributions include a downloadable CSV file, an API or an RSS feed.
+      <p>Represents a specific available format of a dataset. Each dataset might be available in different formats, these formats might represent different variants of the dataset or different endpoints. Examples of distributions include a downloadable CSV file, an API or an RSS feed.
       </p>
 
       <p>
@@ -1081,7 +1081,7 @@
       <h3 role="heading" aria-level="2" id="CategoryScheme">Category Scheme</h3>
       <p>The knowledge organization system (KOS) is used to represent themes/categories of datasets in the catalog. 
         It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="https://www.w3.org/TR/skos-reference/#schemes">skos:ConceptScheme</a> Vocabulary Specification. 
-        The Category Scheme is being used in the Catalog Themes and Dataset Theme.
+        The Category Scheme is being used in the Catalog themes and Dataset theme.
       </p>
 
       <p>
@@ -1128,10 +1128,10 @@
 
     <section id="Category">
       <h3 role="heading" aria-level="2" id="category">Category</h3>
-      <p>A category or a theme used to describe datasets in the catalog.
+      <p>A category or a theme is being used to describe datasets in the catalog.
         It is recommended to use either skos:inScheme or skos:topConceptOf on every skos:Concept to classify datasets and to link it to the concept scheme it belongs to. This concept scheme is typically associated with the catalog using dcat:themeTaxonomy.
         It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="https://www.w3.org/TR/skos-reference/#concepts">skos:ConceptScheme</a> Vocabulary Specification. 
-        The Category is being used in the Catalog Themes and Dataset Theme.
+        The Category is being used in the Catalog themes and Dataset theme.
       </p>
 
       <p>
@@ -1230,7 +1230,7 @@
 
     <section id="Identifier">
       <h3 role="heading" aria-level="2" id="identifier">Identifier</h3>
-      <p>This is based on the [[UN-CEFACT-V3-1]] Identifier class. The type of the class is the adms:identifier.
+      <p>The Identifier is used to uniquely describe an object. This is based on the [[UN-CEFACT-V3-1]] Identifier class. The type of the class is the adms:identifier.
       </p>
 
       <p>
@@ -1259,7 +1259,7 @@
 
     <section id="Licence">
       <h3 role="heading" aria-level="2" id="Licence">Licence</h3>
-      <p>A legal document giving official permission to do something with a Resource.
+      <p>A legal document giving official permission to do something with a resource.
         It <em class="rfc2119" title="MAY">MAY</em> have all fields provided by the <a href="http://purl.org/dc/terms/LicenseDocument">dct:LicenseDocument</a> Dublin Core Metadata Initiative.
       </p>
 
@@ -1333,7 +1333,7 @@
 
       <section id="Instance">
         <h3 role="heading" aria-level="2" id="Instance">Instance</h3>
-        <p>The instance is a description of a instance in the OpenDataPub network.
+        <p>The instance is a description of an member in the OpenDataPub network.
         </p>
   
         <p>
@@ -1389,7 +1389,7 @@
         </p>
         <p>
           The outbox stream contains datasets the instance has
-          published, subject to the ability of the requestor to retrieve the
+          published, which are subject to the ability of the requestor to retrieve the
           datasets.
         </p>
         <p>
@@ -1416,9 +1416,9 @@
 
         <p>
           The instance MUST perform de-duplication of datasets returned by
-          the inbox. Duplication can occur if an dataset is published by a member of the circle of trust and by a instance the instance is subscribed to.
+          the inbox. Duplication can occur if a dataset is published by a member of the circle of trust and by an instance the instance is subscribed to.
           Such de-duplication MUST be performed by comparing the
-          <code>id</code> of the activities and dropping any activities
+          <code>id</code> of the datasets and dropping any datasets
           already seen.
         </p>
 
@@ -1432,7 +1432,7 @@
       <h2 role="heading" aria-level="2">Circle of Trust</h2>
 
       <p>
-        Every instance MUST have a circle of trust collection. This is a list of every instance who this instance trusts to accept datasets from. 
+        Every instance MUST have a circle of trust collection. This is a list of every instance, which this instance trusts to deliver acceptable datasets. 
         The circle of trust collection MUST be an CircleOfTrustCollection.
       </p>        
 
@@ -1488,7 +1488,7 @@
       <h2 role="heading" aria-level="2">Subscription Collection</h2>
 
       <p>
-        Every instance MUST have a subscription collection. This is a list of every instance who has subscribed to the datasets of a instance. 
+        Every instance MUST have a subscription collection. This is a list of every instance, which has subscribed to the datasets of this instance. 
         The subscription collection MUST be a SubscriptionCollection.
       </p>        
 
@@ -1537,7 +1537,7 @@
     </p>
     <p>
     In order to propagate updates throughout the open data network, datasets are sent to all recipients in a instance's circle of trust and subscription collection.
-    The circle of trust is a closed circle in which each member trust the datasets from all other members. The instance MUST therefore store the datasets locally, so they can be found.
+    The circle of trust is a closed circle in which each member trusts the datasets from all other members. The instance MUST therefore store the datasets locally, so they can be found.
     In contrast to the circle of trust, the SubscribtionCollection is a more loose association. 
     Instance B can request to be added to instance A's SubscribtionCollection and will then be delivered with the updates regarding all datasets. 
     However, a subscriber in the SubscribtionCollection, like instance B, is not trusted to produce legitimate datasets and is therefore not allowed to post back to A's inbox.
@@ -1569,7 +1569,7 @@
     <section>
         <h3 id="endpointinfo">Info</h3>
         <p>The info endpoint MUST output the <code>Instance</code> datatype filled with the information about the instance. With this information the endpoints can be queried and supply additional information in case of an extension.</p>
-        <p>The info endpoint is central, because all other endpoints are located nested under his URL. It therefore defines the [endpoint] variable used in this chapter.</p>
+        <p>The info endpoint is central, because all other endpoints are nested under his URL. It therefore defines the [endpoint] variable used in this chapter.</p>
         </section>
 
     <section>
@@ -1577,7 +1577,7 @@
         <p>The outbox is discovered through the info endpoint of an instance. It therefore MUST be located under the URL "[endpoint]/outbox/". The outbox MUST be an <code>OrderedCollection</code>.
           The outbox MAY contain other objects than datasets, but will only deliver them based on the criteria defined in <a href="#communication">communication</a>.</p>
         <p>When the contents of the outbox are up to delivery, the instance MUST determine the recipients of the objects. 
-          Datasets MUST be delivered to all instances in the <code>CircleOfTrustCollection</code> as well as the instances in the <code>SubscriptionCollection</code>.
+          Datasets MUST be delivered to all instances in the <code>CircleOfTrustCollection</code> as well as to the instances in the <code>SubscriptionCollection</code>.
           The instance MUST send them via POST to the inboxes of the instances, which can be derived from their <a href="#endpointinfo">Info</a> endpoints.
         </p>
     </section>  
