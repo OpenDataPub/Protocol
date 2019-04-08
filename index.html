@@ -1745,8 +1745,8 @@
       </p>
       <p>
         When an instance wants to vote on a new circle leader, it sends the Vote message. The vote can be either held for a new circle leader or for the removal of an instance from the circle of trust. This is determined by the voteOutcome property.
-        The Vote message contains the <code>instance</code> attribute for the node, which the instance wants to be the next circle leader and a unique voteId as well as a timeout.
-        The message is being sent to all other instances in the circle. Upon receiving the message every instance has the time defined in the timeout to send out its own Vote message to every other node, referencing the id from the original message.
+        The Vote message contains the <code>instance</code> attribute for the instance, which the instance wants to be the next circle leader and a unique voteId as well as a timeout.
+        The message is being sent to all other instances in the circle. Upon receiving the message every instance has the time defined in the timeout to send out its own Vote message to every other instance, referencing the id from the original message.
         For the case of an instance removal, which the instance wants to vote against, the instance attribute MUST be left empty. 
       </p>
       <pre class="example highlight xml">
@@ -1782,7 +1782,7 @@
         </xmp>
       </pre>
       <p>
-        Either way the vote in this case is over and the instances would have to start a new vote. In the case of a timeout with less than 100% of the votes, the vote is canceled as well.
+        Either way, the vote is over in this case and the instances would have to start a new vote. In the case of a timeout with less than 100% of the votes, the vote is cancelled as well.
         In the case of a tie, the voting process has to be repeated, but only the two instances from the tie are eligible to be voted for. 
         The instances have to be able to identify, that a vote is a successor to a previous failed vote, which is why in such a case the instances MUST fill the previousId field of the vote for reference.
       </p>
@@ -1793,8 +1793,8 @@
       <h2 role="heading" aria-level="2" id="dataset-activities">Dataset Activities</h2>
       <p>
         Since the dataset is the central exchange datatype, there needs to be a way to change a once created dataset. OpenDataPub accomplishes that by using dataset activities.
-        The activity fields take the value of either 01, for creation, 02, for an update or 03 for deletion. In case of an creation the initial dataset is delivered with all available fields.
-        A dataset with a update activity 02 MUST only contain the changed fields and not the data that remained the same. This way the traffic is reduced and updates are easily identifiable. 
+        The activity field takes the value of either 01, for creation, 02, for an update or 03 for deletion. In the case of a creation the initial dataset is delivered with all available attributes.
+        A dataset with an update activity 02 MUST only contain the changed attributes and not the data that remained the same. This way the traffic is reduced and updates are easily identifiable. 
         For a deletion only the dataset id and the activity SHOULD be provided.
       </p>
   </section>
@@ -2116,19 +2116,19 @@
 
   <section id="security-considerations" class="appendix informative">
     <h2>Security Considerations</h2>
-    <p>The following cahpters are heavily influenced by [[ActivityPub]], if not adopted completely.</p>
+    <p>The following chapters are heavily influenced by [[ActivityPub]], if not adopted completely.</p>
 
     <section id="authorization">
       <h3>Authentication and Authorization</h3>
       <p>
         OpenDataPub itself does not handle authentication and authorization, but rather recommends to use the existing best practice of authentication desgined for ActivityPub. 
-        Instance to instance communication SHOULD be authenticated by using [[HTTP-Signatures]]. Instances MUST be able to identify wheter a message is by the right sender.
+        Instance to instance communication SHOULD be authenticated by using [[HTTP-Signatures]]. Instances MUST be able to identify wheter a message is from the right sender.
       </p>
     </section>
     <section id="security-recursive-objects">
         <h2>Recursive Objects</h2>
         <p>
-          Instances should set a limit on how deep to recurse while resolving objects,
+          Instances SHOULD set a limit on how deep to recurse while resolving objects,
           or otherwise specially handle OpenDataPub objects with recursive
           references. Failure to properly do so may result in denial-of-service security vulnerabilities.
         </p>
@@ -2138,15 +2138,15 @@
         <p>
           Spam is a problem in any network, perhaps especially so in federated networks.
           While no specific mechanism for combating spam is provided in OpenDataPub, it is recommended that instances filter incoming content
-          both by untrusted instances and any remote instance through some sort of spam filter.
+          both by untrusted instances and any remote instance through some sort of spam protection.
         </p>
     </section>
     <section id="security-federation-dos">
         <h2>Federation denial-of-service</h2>
           <p>
-            Instances should implement protections against denial-of-service attacks from other, federated instances.
+            Instances SHOULD implement protections against denial-of-service attacks from other, federated instances.
             This can be done using, for example, some kind of ratelimiting mechanism.
-            Instances should be especially careful to implement this protection around activities that involve side effects.
+            Instances SHOULD be especially careful to implement this protection around activities that involve side effects.
             Instances SHOULD also take care not to overload instances with submissions, for example by using an exponential backoff strategy.
           </p>
       </section>
