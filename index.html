@@ -1594,8 +1594,8 @@
     <h3 id="endpointcircleoftrust">CircleOfTrust</h3>
     <p>The CircleOfTrust is discovered through the info endpoint of an instance. It therefore MUST be located under the URL "[endpoint]/CircleOfTrust/". The circle of trust endpoint MUST output the CircleOfTrustCollection of this instance. The Circle of Trust is supposed to be public, so instances can discover other instances.</p>
     <p>The circle of trust understands three messages. There is a JoinRequest, JoinRequestAnswer und a Leave message. </p>
-    <p>For the circle of trust there are two options under which one can operate. The first being a circle of trust, that has a circle leader. 
-      This circle leader can decide whether to accept a join request or to deny it on its own without having to ask any other member.</p>
+    <p>For the circle of trust there are two options under which one can operate. The first being a circle of trust that has a circle leader. 
+      This circle leader can decide on its own whether to accept a join request or to deny it, without having to ask any other member.</p>
     <img alt="circle of trust join request with a circleleader" src="figures/cot_circleleader.svg">
     <p>In this scenario the new participant, who wants to join the circle sends a Join request to any member of the circle.</p>
     <pre class="example highlight xml">
@@ -1620,8 +1620,8 @@
       </odp:JoinRequest>          
       </xmp>
     </pre>
-    <p>This exact request MUST then send by the instance already in the circle to the CircleOfTrust endpoint of the circle leader. The circle leader can identify this as a new request by comparing his CircleOfTrustCollection to the request. 
-      After deciding on whether to accept or deny the quest the circle leader sends its response, within the timelimit set by the sender of the request. 
+    <p>This exact request MUST then be sent by the instance already in the circle to the CircleOfTrust endpoint of the circle leader. The circle leader can identify this as a new request by comparing his CircleOfTrustCollection to the request. 
+      After deciding on whether to accept or deny the request the circle leader sends its response within the timelimit set by the sender of the request. 
       If the time of the timeout has run out, the circle leader MUST send a response with a negative isAccepted property and thereby denying the access to the circle of trust.
     </p>
     <pre class="example highlight xml">
@@ -1651,7 +1651,7 @@
     </pre>
     <p>
       The outcome of the decision is then reflected in the odp:isAccepted property. If the instance is being denied access to the circle, the process is finished. 
-      If it accepted, the instance will be added to the CircleOfTrustCollection of the circle leader. The information is then spread across the cirlce of trust by send the JoinRequestAnswer to every instance of the circle of trust.
+      If it is being accepted, the instance will be added to the CircleOfTrustCollection of the circle leader. The information is then spread across the cirlce of trust by sending the JoinRequestAnswer to every instance of the circle of trust.
       If the answer was positive the other instances MUST add the newly accepted instance to their CircleOfTrustCollection.
     </p>
     <p>
@@ -1659,14 +1659,14 @@
     </p>
     <img alt="circle of trust join request without a circleleader" src="figures/cot_no_circleleader.svg">
     <p>
-      The JoinRequest is identical, but when the instance in the circle accepts the request from the new participant the instance, which is already a member, takes over the role of the circle leader for this process.
-      But instead of deciding on the outcome itself, the instance MUST forward the request to every other instance in the circle. Additionally the instance MUST send its own JoinRequestAnswer to each instance. The instances now MUST reply within the set timeout. 
+      The JoinRequest is identical, but when the instance in the circle accepts the request from the new participant, the instance, which is already a member, takes over the role of the circle leader for this process.
+      But instead of deciding on the outcome itself, the instance MUST forward the request to every other instance in the circle. Additionally, the instance MUST send its own JoinRequestAnswer to each instance. The instances now MUST reply within the set timeout. 
       When there is no decision being made within the timeout, the instance MUST send a response with a negative isAccepted property.
-      The instance which acts as the circle leader MUST collect the JoinRequestAnswer message until all messages arrive. The vote is then evaluated by the instance and the answer, in the shape of a JoinRequestAnswer, MUST then be send to the new participant.
-      If the instance acting as a circle leader is the only instance in the circle, it can answer the request on its own.
+      The instance, which acts as the circle leader, MUST collects the JoinRequestAnswer messages until all messages have arrived. The vote is then evaluated by the instance and the answer, in the shape of a JoinRequestAnswer, MUST then be sent to the new participant.
+      If the instance, acting as a circle leader, is the only instance in the circle, it can answer the request on its own.
     </p>
     <img alt="a visualisation of the messageflow in a circle of trust join request without a circleleader" src="figures/cot_no_circleleader_vis.svg">
-    <p>When an instance wants to leave a circle of trust by its own, it MUST send a <a href="#Leave">Leave</a> Message to every member of the circle containing itself as the instance in the message. 
+    <p>When an instance wants to leave a circle of trust on its own, it MUST send a <a href="#Leave">Leave</a> message to every member of the circle containing itself as the instance in the message. 
       The members attribute must be filled with a collection of all members of the circle it wants to leave.</p>   
   </section>
 
@@ -1706,7 +1706,7 @@
     </pre>
     <p>
       If the message is answered with a HTTP 200 the instance MUST add the requesting instance to its SubscriptionCollection.
-      If the instance denies the addition to the SubscriptionCollection it SHOULD answer with the appropiated error code, i.e. HTTP 409, if the instance is already on the list, or HTTP 429, if the instance is spamming.
+      If the instance denies the addition to the SubscriptionCollection it SHOULD answer with the appropiate error code, i.e. HTTP 409, if the instance is already on the list, or HTTP 429, if the instance is spamming.
     </p>  
     <img alt="subscribe" src="figures/subscribe.svg">
     <p>
@@ -1745,7 +1745,7 @@
       </p>
       <p>
         When an instance wants to vote on a new circle leader, it sends the Vote message. The vote can be either held for a new circle leader or for the removal of an instance from the circle of trust. This is determined by the voteOutcome property.
-        The Vote message contains the instance attribute for the node, which the instance wants to be the next circle leader and a unique voteId as well as a timeout.
+        The Vote message contains the <code>instance</code> attribute for the node, which the instance wants to be the next circle leader and a unique voteId as well as a timeout.
         The message is being sent to all other instances in the circle. Upon receiving the message every instance has the time defined in the timeout to send out its own Vote message to every other node, referencing the id from the original message.
         For the case of an instance removal, which the instance wants to vote against, the instance attribute MUST be left empty. 
       </p>
