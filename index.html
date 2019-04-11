@@ -65,6 +65,15 @@
 
   <section id="Overview">
     <h2><span class="secno">1. </span>Overview</h2>
+    OpenDataPub offers two major solutions for building a network:
+    <ul>
+      <li>The circle of trust: A circle in which every instance trust every other instance to publish valid datasets</li>
+      <li>The Subscription: An approach to include instances that are not in the circle of trust, but deliver datasets to them in a one-way manner</li>
+    </ul>
+    In addition to these two approaches, OpenDataPub uses instance-to-instance communication to build a network. 
+    OpenDataPub implementations have different messages to vote on decisions in their network, like including new members or promoting one instance to be a circle leader.
+    This approach offers a hierarchical solution to the enviroments under which Open Data Portals operate: One instance can decide on the major decisions of the its circle.
+    In addition to all these features, OpenDataPub is trying to be as close as possible to the DCAT-AP Open Data Standard of the European Union, to lower any effort of an implementation.
   </section>
 
   <section id="conformance">
