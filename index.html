@@ -970,7 +970,7 @@
 		  <a href="">
 			<code>Distribution</code></a>
 		  <code>adms:status</code>
-		  <p>This property refers to the maturity of the Distribution</p>
+		  <p>This property refers to the maturity of the Distribution.</p>
 		  <p>Range: skos:Concept (0..1)</p>
     </dd>
     
@@ -1442,15 +1442,15 @@
 
       <p>
         Every instance MUST have a circle of trust collection. This is a list of every instance, which this instance trusts to deliver acceptable datasets. 
-        The circle of trust collection MUST be an CircleOfTrustCollection.
+        The circle of trust collection MUST be an <code>CircleOfTrustCollection</code>.
       </p>        
 
       <h3 role="heading" aria-level="2" id="CircleOfTrustCollection">CircleOfTrustCollection</h3>
-      <p>The CircleOfTrustCollection is a collection of Circle of Trust entries.
+      <p>The <code>CircleOfTrustCollection</code> is a collection of Circle of Trust entries.
       </p>
 
       <p>
-        CircleOfTrustCollection objects <em class="rfc2119" title="MUST">MUST</em> have the following properties:
+        <code>CircleOfTrustCollection</code> objects <em class="rfc2119" title="MUST">MUST</em> have the following properties:
       </p>
 
       <dt id="Members-property">Members</dt>
@@ -1498,15 +1498,15 @@
 
       <p>
         Every instance MUST have a subscription collection. This is a list of every instance, which has subscribed to the datasets of this instance. 
-        The subscription collection MUST be a SubscriptionCollection.
+        The subscription collection MUST be a <code>SubscriptionCollection</code>.
       </p>        
 
       <h3 role="heading" aria-level="2" id="SubscriptionCollection">SubscriptionCollection</h3>
-      <p>The SubscriptionCollection is a collection of instances.
+      <p>The <code>SubscriptionCollection</code> is a collection of instances.
       </p>
 
       <p>
-        SubscriptionCollection objects <em class="rfc2119" title="MAY">MAY</em> have the following properties:
+        <code>SubscriptionCollection</code> objects <em class="rfc2119" title="MAY">MAY</em> have the following properties:
       </p>
       <dt id="Members-property">Members</dt>
       <dd>
@@ -1547,9 +1547,9 @@
     <p>
     In order to propagate updates throughout the open data network, datasets are sent to all recipients in a instance's circle of trust and subscription collection.
     The circle of trust is a closed circle in which each member trusts the datasets from all other members. The instance MUST therefore store the datasets locally, so they can be found.
-    In contrast to the circle of trust, the SubscribtionCollection is a more loose association. 
-    Instance B can request to be added to instance A's SubscribtionCollection and will then be delivered with the updates regarding all datasets. 
-    However, a subscriber in the SubscribtionCollection, like instance B, is not trusted to produce legitimate datasets and is therefore not allowed to post back to A's inbox.
+    In contrast to the circle of trust, the <code>SubscriptionCollection</code> is a more loose association. 
+    Instance B can request to be added to instance A's <code>SubscriptionCollection</code> and will then be delivered with the updates regarding all datasets. 
+    However, a subscriber in the <code>SubscriptionCollection</code>, like instance B, is not trusted to produce legitimate datasets and is therefore not allowed to post back to A's inbox.
     The result is a one-way delivery of datasets.
     </p>
 
@@ -1601,7 +1601,7 @@
 
     <section>
     <h3 id="endpointcircleoftrust">CircleOfTrust</h3>
-    <p>The CircleOfTrust is discovered through the info endpoint of an instance. It therefore MUST be located under the URL "[endpoint]/CircleOfTrust/". The circle of trust endpoint MUST output the CircleOfTrustCollection of this instance. The Circle of Trust is supposed to be public, so instances can discover other instances.</p>
+    <p>The CircleOfTrust is discovered through the info endpoint of an instance. It therefore MUST be located under the URL "[endpoint]/CircleOfTrust/". The circle of trust endpoint MUST output the <code>CircleOfTrustCollection</code> of this instance. The Circle of Trust is supposed to be public, so instances can discover other instances.</p>
     <p>The circle of trust understands three messages. There is a JoinRequest, JoinRequestAnswer und a Leave message. </p>
     <p>For the circle of trust there are two options under which one can operate. The first being a circle of trust that has a circle leader. 
       This circle leader can decide on its own whether to accept a join request or to deny it, without having to ask any other member.</p>
@@ -1629,9 +1629,9 @@
       </odp:JoinRequest>          
       </xmp>
     </pre>
-    <p>This exact request MUST then be sent by the instance already in the circle to the CircleOfTrust endpoint of the circle leader. The circle leader can identify this as a new request by comparing his CircleOfTrustCollection to the request. 
+    <p>This exact request MUST then be sent by the instance already in the circle to the CircleOfTrust endpoint of the circle leader. The circle leader can identify this as a new request by comparing his <code>CircleOfTrustCollection</code> to the request. 
       After deciding on whether to accept or deny the request the circle leader sends its response within the timelimit set by the sender of the request. 
-      If the time of the timeout has run out, the circle leader MUST send a response with a negative isAccepted property and thereby denying the access to the circle of trust.
+      If the time of the <code>timeout</code> has run out, the circle leader MUST send a response with a negative <code>isAccepted</code> property and thereby denying the access to the circle of trust.
     </p>
     <pre class="example highlight xml">
       <xmp>
@@ -1659,9 +1659,9 @@
       </xmp>
     </pre>
     <p>
-      The outcome of the decision is then reflected in the odp:isAccepted property. If the instance is being denied access to the circle, the process is finished. 
-      If it is being accepted, the instance will be added to the CircleOfTrustCollection of the circle leader. The information is then spread across the cirlce of trust by sending the JoinRequestAnswer to every instance of the circle of trust.
-      If the answer was positive the other instances MUST add the newly accepted instance to their CircleOfTrustCollection.
+      The outcome of the decision is then reflected in the <code>odp:isAccepted</code> property. If the instance is being denied access to the circle, the process is finished. 
+      If it is being accepted, the instance will be added to the <code>CircleOfTrustCollection</code> of the circle leader. The information is then spread across the cirlce of trust by sending the JoinRequestAnswer to every instance of the circle of trust.
+      If the answer was positive the other instances MUST add the newly accepted instance to their <code>CircleOfTrustCollection</code>.
     </p>
     <p>
       If there is no circle leader, the request has a longer way to go before it can be definitly answered.
@@ -1669,8 +1669,8 @@
     <img alt="circle of trust join request without a circleleader" src="figures/cot_no_circleleader.svg">
     <p>
       The JoinRequest is identical, but when the instance in the circle accepts the request from the new participant, the instance, which is already a member, takes over the role of the circle leader for this process.
-      But instead of deciding on the outcome itself, the instance MUST forward the request to every other instance in the circle. Additionally, the instance MUST send its own JoinRequestAnswer to each instance. The instances now MUST reply within the set timeout. 
-      When there is no decision being made within the timeout, the instance MUST send a response with a negative isAccepted property.
+      But instead of deciding on the outcome itself, the instance MUST forward the request to every other instance in the circle. Additionally, the instance MUST send its own JoinRequestAnswer to each instance. The instances now MUST reply within the set <code>timeout</code>. 
+      When there is no decision being made within the <code>timeout</code>, the instance MUST send a response with a negative <code>isAccepted</code> property.
       The instance, which acts as the circle leader, MUST collects the JoinRequestAnswer messages until all messages have arrived. The vote is then evaluated by the instance and the answer, in the shape of a JoinRequestAnswer, MUST then be sent to the new participant.
       If the instance, acting as a circle leader, is the only instance in the circle, it can answer the request on its own.
     </p>
@@ -1683,7 +1683,7 @@
     <h3 id="endpointsubscription">Subscription</h3>
     <p>
       The Subscription is discovered through the info endpoint of an instance. It therefore MUST be located under the URL "[endpoint]/Subscription/".
-      The Subscription endpoint MUST output the SubscriptionCollection of this instance. 
+      The Subscription endpoint MUST output the <code>SubscriptionCollection</code> of this instance. 
       Subscribers are public and help with discoverability of the open data network.
     </p>
     <pre class="example highlight xml">
@@ -1714,15 +1714,15 @@
         </xmp>
     </pre>
     <p>
-      If the message is answered with a HTTP 200 the instance MUST add the requesting instance to its SubscriptionCollection.
-      If the instance denies the addition to the SubscriptionCollection it SHOULD answer with the appropiate error code, i.e. HTTP 409, if the instance is already on the list, or HTTP 429, if the instance is spamming.
+      If the message is answered with a HTTP 200 the instance MUST add the requesting instance to its <code>SubscriptionCollection</code>.
+      If the instance denies the addition to the <code>SubscriptionCollection</code> it SHOULD answer with the appropiate error code, i.e. HTTP 409, if the instance is already on the list, or HTTP 429, if the instance is spamming.
     </p>  
     <img alt="subscribe" src="figures/subscribe.svg">
     <p>
-      After being added to the SubscriptionCollection of an instance, this instance will send every new dataset to the registered instance.
+      After being added to the <code>SubscriptionCollection</code> of an instance, this instance will send every new dataset to the registered instance.
     </p>
     <p>
-      If the instance no longer wants to receive any updates, it can send the Unsubscribe message to remove itself from the SubscriptionCollection.
+      If the instance no longer wants to receive any updates, it can send the Unsubscribe message to remove itself from the <code>SubscriptionCollection</code>.
     </p>
     <pre class="example highlight xml">
       <xmp>
@@ -1740,7 +1740,7 @@
     </p>
     <img alt="unsubscribe" src="figures/unsubscribe.svg">
     <p>
-        If the message is answered with a HTTP 200 the instance MUST be removed from the SubscriptionCollection.
+        If the message is answered with a HTTP 200 the instance MUST be removed from the <code>SubscriptionCollection</code>.
     </p>
    </section>
     
@@ -1753,9 +1753,9 @@
         To avoid re-inventing the wheel a method similar to the VoxPopuli protocol is chosen for the protocol.
       </p>
       <p>
-        When an instance wants to vote on a new circle leader, it sends the Vote message. The vote can be either held for a new circle leader or for the removal of an instance from the circle of trust. This is determined by the voteOutcome property.
-        The Vote message contains the <code>instance</code> attribute for the instance, which the instance wants to be the next circle leader and a unique voteId as well as a timeout.
-        The message is being sent to all other instances in the circle. Upon receiving the message every instance has the time defined in the timeout to send out its own Vote message to every other instance, referencing the id from the original message.
+        When an instance wants to vote on a new circle leader, it sends the Vote message. The vote can be either held for a new circle leader or for the removal of an instance from the circle of trust. This is determined by the <code>voteOutcome</code> property.
+        The Vote message contains the <code>instance</code> attribute for the instance, which the instance wants to be the next circle leader and a unique <code>voteId</code> as well as a <code>timeout</code>.
+        The message is being sent to all other instances in the circle. Upon receiving the message every instance has the time defined in the <code>timeout</code> to send out its own Vote message to every other instance, referencing the id from the original message.
         For the case of an instance removal, which the instance wants to vote against, the instance attribute MUST be left empty. 
       </p>
       <pre class="example highlight xml">
@@ -1775,7 +1775,7 @@
         </xmp>
       </pre>
       <p>
-        When 100% of the votes are in, the instances send a VoteAcknowledge message to the new circle leader. The decisive property MUST reflect wheter it was a win or a tie. 
+        When 100% of the votes are in, the instances send a VoteAcknowledge message to the new circle leader. The <code>decisive</code> property MUST reflect wheter it was a win or a tie. 
         The circle leader responds with a HTTP Status 200 if it came to the same conclusion as the instances, or a HTTP Status 403 if it didn't.
       </p>
       <pre class="example highlight xml">
@@ -1791,9 +1791,9 @@
         </xmp>
       </pre>
       <p>
-        Either way, the vote is over in this case and the instances would have to start a new vote. In the case of a timeout with less than 100% of the votes, the vote is cancelled as well.
+        Either way, the vote is over in this case and the instances would have to start a new vote. In the case of a <code>timeout</code> with less than 100% of the votes, the vote is cancelled as well.
         In the case of a tie, the voting process has to be repeated, but only the two instances from the tie are eligible to be voted for. 
-        The instances have to be able to identify, that a vote is a successor to a previous failed vote, which is why in such a case the instances MUST fill the previousId field of the vote for reference.
+        The instances have to be able to identify, that a vote is a successor to a previous failed vote, which is why in such a case the instances MUST fill the <code>previousId</code> field of the vote for reference.
       </p>
       <img alt="normal voting process" src="figures/vote_normal.svg">
     </section>
@@ -1802,9 +1802,9 @@
       <h2 role="heading" aria-level="2" id="dataset-activities">Dataset Activities</h2>
       <p>
         Since the dataset is the central exchange datatype, there needs to be a way to change a once created dataset. OpenDataPub accomplishes that by using dataset activities.
-        The activity field takes the value of either 01, for creation, 02, for an update or 03 for deletion. In the case of a creation the initial dataset is delivered with all available attributes.
-        A dataset with an update activity 02 MUST only contain the changed attributes and not the data that remained the same. This way the traffic is reduced and updates are easily identifiable. 
-        For a deletion only the dataset id and the activity SHOULD be provided.
+        The <code>activity</code> field takes the value of either 01, for creation, 02, for an update or 03 for deletion. In the case of a creation the initial dataset is delivered with all available attributes.
+        A dataset with an update <code>activity</code> 02 MUST only contain the changed attributes and not the data that remained the same. This way the traffic is reduced and updates are easily identifiable. 
+        For a deletion only the dataset id and the <code>activity</code> SHOULD be provided.
       </p>
   </section>
 </section>
@@ -2109,9 +2109,9 @@
           <td>Range:</td>
           <td>
             <code>xsd:nonNegativeInteger</code>
-            <p>01 - creation</p>
-            <p>02 - update</p>
-            <p>03 - deletion </p>
+            <p><code>01 - creation</code></p>
+            <p><code>02 - update</code></p>
+            <p><code>03 - deletion</code></p>
           </td>
         </tr>
         <tr>
